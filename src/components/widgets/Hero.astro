@@ -1,6 +1,7 @@
 ---
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
+import Header from '~/components/widgets/Header.astro';
 
 import type { Hero as Props } from '~/types';
 
@@ -14,24 +15,37 @@ const {
   image = await Astro.slots.render('image'),
 
   id,
+  bgImage,
   bg = await Astro.slots.render('bg'),
+  headerData,
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+<section class="relative md:-mt-[76px] not-prose overflow-hidden header-hero" {...id ? { id } : {}}>
+  <div class="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat bg_cover" aria-hidden="true" style={bgImage ? `background-image: url('${bgImage}')` : undefined}>
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-blue-500/80"></div>
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+  
+  <!-- Wave shape at bottom -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+    <svg class="relative block w-full h-24 sm:h-32 md:h-40 lg:h-48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,80 Q300,40 600,60 Q900,80 1200,80 L1200,120 L0,120 Z" class="fill-current text-accent"></path>
+    </svg>
+  </div>
+  
+  <!-- Header dentro del Hero -->
+  {headerData && <Header {...headerData} isSticky={false} showRssFeed showToggleTheme />}
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center">
+    <div class="w-full py-16 sm:py-20 md:py-24 lg:py-32">
+      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto relative z-10">
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-base text-gray-500 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={tagline}
             />
           )
@@ -39,7 +53,7 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-gray-900 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={title}
             />
           )
@@ -48,18 +62,18 @@ const {
           {
             subtitle && (
               <p
-                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                class="text-xl text-gray-700 mb-8 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
                 set:html={subtitle}
               />
             )
           }
           {
             actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade mt-2">
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
+                      <Button {...(action || {})} class="w-full sm:mb-0 shadow-lg" />
                     </div>
                   ))
                 ) : (
@@ -72,7 +86,7 @@ const {
         {content && <Fragment set:html={content} />}
       </div>
       <div
-        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade relative z-10 mt-8"
       >
         {
           image && (
@@ -96,4 +110,55 @@ const {
       </div>
     </div>
   </div>
+
+  <style>
+    .header-hero {
+      position: relative;
+      z-index: 1;
+    }
+    .bg_cover {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
 </section>
+
+<style>
+  .header-hero {
+    height: 600px;
+    position: relative;
+  }
+  
+  @media (min-width: 640px) {
+    .header-hero {
+      height: 750px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .header-hero {
+      height: 900px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .header-hero {
+      height: 1000px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .header-hero {
+      height: 1100px;
+    }
+  }
+  
+  .bg_cover {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+</style>

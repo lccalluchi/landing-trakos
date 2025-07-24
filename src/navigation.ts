@@ -3,119 +3,61 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Homes',
+      text: 'Soluciones',
       links: [
         {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
+          text: 'Gestión de proyectos',
+          href: getPermalink('/soluciones/gestion-proyectos'),
         },
         {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
+          text: 'Equipos de operaciones',
+          href: getPermalink('/soluciones/equipos-operaciones'),
         },
         {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
+          text: 'Equipos de marketing',
+          href: getPermalink('/soluciones/equipos-marketing'),
         },
         {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
+          text: 'Equipos de producto',
+          href: getPermalink('/soluciones/equipos-producto'),
         },
       ],
     },
     {
-      text: 'Pages',
-      links: [
-        {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
-        },
-        {
-          text: 'Services',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
-        },
-        {
-          text: 'About us',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
-      ],
+      text: 'Precios',
+      href: getPermalink('/pricing'),
     },
     {
-      text: 'Landing',
-      links: [
-        {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
-        },
-        {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
-        },
-        {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
-        },
-      ],
+      text: 'Clientes',
+      href: getPermalink('/customers'),
     },
     {
       text: 'Blog',
+      href: getBlogPermalink(),
+    },
+    {
+      text: 'Recursos',
       links: [
         {
-          text: 'Blog List',
-          href: getBlogPermalink(),
+          text: 'Centro de recursos',
+          href: getPermalink('/recursos'),
         },
         {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
+          text: 'Guías y tutoriales',
+          href: getPermalink('/recursos/guias'),
         },
         {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
+          text: 'Webinars',
+          href: getPermalink('/recursos/webinars'),
         },
         {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
+          text: 'Comunidad',
+          href: getPermalink('/comunidad'),
         },
       ],
     },
-    {
-      text: 'Widgets',
-      href: '#',
-    },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  actions: [{ text: 'Comenzar', href: getPermalink('/signup'), class: 'btn-primary' }],
 };
 
 export const footerData = {

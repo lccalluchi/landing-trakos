@@ -2,11 +2,9 @@
 import { Icon } from 'astro-icon/components';
 import Logo from '~/components/Logo.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
-import ToggleMenu from '~/components/common/ToggleMenu.astro';
-import Button from '~/components/ui/Button.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
-import { trimSlash, getAsset } from '~/utils/permalinks';
+import { trimSlash } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
 
 interface Link {
@@ -38,10 +36,7 @@ const {
   actions = [],
   isSticky = false,
   isDark = false,
-  isFullWidth = false,
   showToggleTheme = false,
-  showRssFeed = false,
-  position = 'center',
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
@@ -49,119 +44,232 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <header
   class:list={[
-    { sticky: isSticky, relative: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+    { sticky: isSticky, fixed: !isSticky, dark: isDark },
+    'top-0 z-40 flex-none mx-auto w-full transition-[opacity] ease-in-out py-3',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
 >
-  <div class="absolute inset-0"></div>
-  <div
-    class:list={[
-      'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
-      {
-        'md:flex md:justify-between': position !== 'center',
-      },
-      {
-        'md:grid md:grid-cols-3 md:items-center': position === 'center',
-      },
-      {
-        'max-w-7xl': !isFullWidth,
-      },
-    ]}
-  >
-    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
-      </a>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white/90 backdrop-blur-md shadow-lg rounded-full py-3 px-3 sm:px-5 md:px-8 flex items-center justify-between">
+      <!-- Logo on the left -->
+      <div class="flex-shrink-0 w-1/4">
+        <a class="flex items-center" href={getHomePermalink()}>
+          <Logo class="h-8 w-auto" />
+        </a>
+      </div>
+      
+      <!-- Mobile menu button -->
       <div class="flex items-center md:hidden">
-        <ToggleMenu />
+        <button
+          type="button"
+          class="text-gray-500 hover:text-gray-700 focus:outline-none"
+          aria-label="Toggle Menu"
+          aria-expanded="false"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Navigation links in the center -->
+      <nav class="hidden md:flex items-center justify-center flex-1 w-2/4">
+        <div class="flex justify-center w-full">
+          <ul class="inline-flex space-x-6 mx-auto">
+          {
+            links.map(({ text, href, links }) => (
+              <li class={links?.length ? 'relative group' : ''}>
+                {links?.length ? (
+                  <>
+                    <button
+                      type="button"
+                      class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center transition-colors duration-200"
+                    >
+                      {text}
+                      <Icon name="tabler:chevron-down" width={16} height={16} className="ml-1" />
+                    </button>
+                    <ul class="hidden group-hover:block absolute left-0 mt-2 w-48 rounded-xl shadow-lg py-2 bg-white/95 backdrop-blur-sm ring-1 ring-black/5 z-50">
+                      {links.map(({ text: text2, href: href2 }) => (
+                        <li>
+                          <a
+                            class:list={[
+                              'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200',
+                              { 'bg-blue-50 text-blue-600': href2 === currentPath },
+                            ]}
+                            href={href2}
+                          >
+                            {text2}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a
+                    class:list={[
+                      'px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center transition-colors duration-200',
+                      { 'text-blue-600': href === currentPath },
+                    ]}
+                    href={href}
+                  >
+                    {text}
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+        </div>
+      </nav>
+      
+      <!-- Right side buttons -->
+      <div class="hidden md:flex items-center justify-end space-x-4 w-1/4">
+        {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
+        
+        <a href="/login" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+          Iniciar sesión
+        </a>
+        
+        {actions && actions.map(({ text, href, class: className, target }) => (
+          <a 
+            href={href} 
+            target={target}
+            class={`px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
+          >
+            <Fragment set:html={text} />
+          </a>
+        ))}
       </div>
     </div>
-    <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
-      aria-label="Main navigation"
-    >
-      <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
-      >
-        {
-          links.map(({ text, href, links }) => (
-            <li class={links?.length ? 'dropdown' : ''}>
-              {links?.length ? (
-                <>
-                  <button
-                    type="button"
-                    class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
-                  >
-                    {text}{' '}
-                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
-                  </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
-                    {links.map(({ text: text2, href: href2 }) => (
-                      <li>
-                        <a
-                          class:list={[
-                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
-                          ]}
-                          href={href2}
-                        >
-                          {text2}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <a
-                  class:list={[
-                    'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
-                    { 'aw-link-active': href === currentPath },
-                  ]}
-                  href={href}
+  </div>
+  
+  <!-- Mobile menu, show/hide based on menu state -->
+  <div class="md:hidden hidden mt-3" id="mobile-menu">
+    <div class="mx-4 bg-white/95 backdrop-blur-md shadow-lg rounded-2xl py-4 px-5 space-y-2">
+      {
+        links.map(({ text, href, links }) => (
+          <div class="mb-1">
+            {links?.length ? (
+              <>
+                <button
+                  type="button"
+                  class="w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 flex justify-between items-center rounded-xl transition-colors duration-200 mobile-submenu-toggle"
                 >
                   {text}
-                </a>
-              )}
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <div
-      class:list={[
-        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
-      ]}
-    >
-      <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex">
-          {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
-          {
-            showRssFeed && (
+                  <Icon name="tabler:chevron-down" width={16} height={16} className="" />
+                </button>
+                <div class="hidden pl-4 mt-1 mb-2 space-y-2 mobile-submenu overflow-hidden transition-all duration-300">
+                  {links.map(({ text: text2, href: href2 }) => (
+                    <a
+                      class:list={[
+                        'block px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors duration-200',
+                        { 'bg-blue-50 text-blue-600': href2 === currentPath },
+                      ]}
+                      href={href2}
+                    >
+                      {text2}
+                    </a>
+                  ))}
+                </div>
+              </>
+            ) : (
               <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                aria-label="RSS Feed"
-                href={getAsset('/rss.xml')}
+                class:list={[
+                  'block px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors duration-200',
+                  { 'bg-blue-50 text-blue-600': href === currentPath },
+                ]}
+                href={href}
               >
-                <Icon name="tabler:rss" class="w-5 h-5" />
+                {text}
               </a>
-            )
-          }
+            )}
+          </div>
+        ))
+      }
+      <div class="pt-5 pb-2 border-t border-gray-200">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-3">
+          <a href="/login" class="w-full sm:w-auto text-center px-5 py-2.5 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+            Iniciar sesión
+          </a>
+          {actions && actions.map(({ text, href, class: className, target }) => (
+            <a 
+              href={href} 
+              target={target}
+              class={`w-full sm:w-auto text-center px-5 py-2.5 text-base font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
+            >
+              <Fragment set:html={text} />
+            </a>
+          ))}
         </div>
-        {
-          actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
-              ))}
-            </span>
-          ) : (
-            ''
-          )
-        }
       </div>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleMenu = document.querySelector('button[aria-label="Toggle Menu"]');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (toggleMenu && mobileMenu) {
+      toggleMenu.addEventListener('click', function() {
+        const expanded = toggleMenu.getAttribute('aria-expanded') === 'true';
+        toggleMenu.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    
+    // Mobile submenu toggles
+    const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
+    
+    submenuToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevenir comportamiento por defecto
+        
+        const submenu = this.nextElementSibling;
+        if (submenu && submenu.classList.contains('mobile-submenu')) {
+          // Cerrar todos los otros submenús primero
+          document.querySelectorAll('.mobile-submenu:not(.hidden)').forEach(item => {
+            if (item !== submenu) {
+              item.classList.add('hidden');
+              item.style.maxHeight = '0px';
+              
+              // Restablecer el icono del botón correspondiente
+              const parentButton = item.previousElementSibling;
+              if (parentButton) {
+                const parentIcon = parentButton.querySelector('svg');
+                if (parentIcon) {
+                  parentIcon.style.transform = 'rotate(0deg)';
+                }
+              }
+            }
+          });
+          
+          // Toggle el submenú actual
+          const isHidden = submenu.classList.contains('hidden');
+          submenu.classList.toggle('hidden');
+          
+          // Animar altura para una transición más suave
+          if (isHidden) {
+            // Expandir
+            setTimeout(() => {
+              submenu.style.maxHeight = submenu.scrollHeight + 'px';
+            }, 10);
+          } else {
+            // Contraer
+            submenu.style.maxHeight = '0px';
+          }
+          
+          // Rotar el icono
+          const icon = this.querySelector('svg');
+          if (icon) {
+            icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+            icon.style.transition = 'transform 0.3s';
+          }
+        }
+      });
+    });
+  });
+</script>
