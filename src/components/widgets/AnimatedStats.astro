@@ -1,0 +1,123 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { Icon } from 'astro-icon/components';
+
+const {
+  id,
+  isDark = false,
+  classes = {},
+  bg = undefined,
+} = Astro.props;
+
+const stats = [
+  {
+    number: '98%',
+    text: 'de precisión en reportes',
+    icon: 'tabler:chart-pie',
+    description: 'Datos precisos y confiables para tomar decisiones informadas'
+  },
+  {
+    number: '40%',
+    text: 'aumento en productividad',
+    icon: 'tabler:trending-up',
+    description: 'Nuestros clientes reportan mejoras significativas en eficiencia operativa'
+  },
+  {
+    number: '6',
+    text: 'industrias especializadas',
+    icon: 'tabler:building-factory',
+    description: 'Soluciones para construcción, minería, manufactura, comercio, logística y agroindustria'
+  },
+  {
+    number: '24/7',
+    text: 'soporte técnico disponible',
+    icon: 'tabler:headset',
+    description: 'Asistencia continua para garantizar el éxito de tu implementación'
+  },
+];
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="relative">
+    <!-- Elementos decorativos -->
+    <div class="absolute -left-16 -top-16 z-0 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+    <div class="absolute -bottom-16 -right-16 z-0 h-64 w-64 rounded-full bg-secondary/10 blur-3xl"></div>
+    
+    <div class="relative z-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {stats.map((stat) => (
+        <div class="stat-card relative overflow-hidden rounded-xl bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-gray-800">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-primary">
+            <Icon name={stat.icon} class="h-6 w-6" />
+          </div>
+          
+          <h3 class="counter mb-1 text-4xl font-bold text-primary" data-target={stat.number.replace(/\D/g, '')}>0</h3>
+          <p class="mb-2 text-xl font-semibold text-gray-800 dark:text-white">
+            {stat.number.includes('%') ? '%' : '+'} {stat.text}
+          </p>
+          <p class="text-gray-600 dark:text-gray-400">{stat.description}</p>
+          
+          <div class="stat-bg absolute -right-8 -top-8 h-32 w-32 rounded-full bg-primary opacity-5"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</WidgetWrapper>
+
+<script>
+  // Animación de contador para las estadísticas
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; // Velocidad de la animación (menor = más rápido)
+    
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const count = parseInt(counter.innerText);
+        const increment = Math.trunc(target / speed);
+        
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(animateCounters, 1);
+        } else {
+          counter.innerText = target;
+        }
+      });
+    };
+    
+    // Iniciar animación cuando los elementos sean visibles
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    // Observar el primer contador es suficiente para iniciar la animación
+    if (counters.length > 0) {
+      observer.observe(counters[0]);
+    }
+  });
+</script>
+
+<style>
+  .stat-card:hover .stat-bg {
+    animation: pulse-slow 3s infinite;
+  }
+  
+  @keyframes pulse-slow {
+    0% {
+      transform: scale(1);
+      opacity: 0.05;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.05;
+    }
+  }
+</style>

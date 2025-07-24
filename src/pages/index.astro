@@ -1,21 +1,28 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from '../layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero from '../components/widgets/Hero.astro';
+import Features2 from '../components/widgets/Features2.astro';
+import Content from '../components/widgets/Content.astro';
+import CallToAction from '../components/widgets/CallToAction.astro';
+
+// Nuevos componentes innovadores
+import AppShowcase from '../components/widgets/AppShowcase.astro';
+import AnimatedFeatures from '../components/widgets/AnimatedFeatures.astro';
+import ModernTestimonials from '../components/widgets/ModernTestimonials.astro';
+import PricingPlans from '../components/widgets/PricingPlans.astro';
+import AnimatedStats from '../components/widgets/AnimatedStats.astro';
+import FloatingCTA from '../components/widgets/FloatingCTA.astro';
+
+// Importar imágenes
+import heroImage from '../assets/images/hero-image.png';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'Trakos: La Inteligencia Operativa que Transforma tu Gestión Diaria',
+  description: 'Desde el campo, en tiempo real, con datos accionables. Trakos es una aplicación multiplataforma potenciada por inteligencia artificial diseñada para ser tu compañero indispensable en la gestión operativa diaria.',
   ignoreTitleTemplate: true,
 };
+
 ---
 
 <Layout metadata={metadata}>
@@ -25,354 +32,410 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Descargar Trakos Ahora',
+        href: '#download',
+        icon: 'tabler:rocket',
       },
-      { text: 'Learn more', href: '#features' },
+      { 
+        text: 'Escríbenos por Chat', 
+        href: '#contact',
+        variant: 'secondary'
+      },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ 
+      src: heroImage, 
+      alt: 'Control de operaciones con Trakos' 
+    }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
+      Trakos: La <span class="text-primary dark:text-primary">Inteligencia Operativa</span> que Transforma tu Gestión Diaria
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      <span class="text-xl">
+        Desde el campo, en tiempo real, con datos accionables. Obtén reportes precisos y oportunos que reflejen la realidad de tus operaciones.
+      </span>
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
+  <!-- App Showcase Widget ************ -->
+  
+  <AppShowcase id="app-showcase" />
 
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
+  <!-- Animated Stats Widget ********** -->
 
-  <!-- Features Widget *************** -->
+  <AnimatedStats id="stats" />
 
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
+  <!-- Industry Partners Section ***************** -->
+  
+  <section class="py-16 bg-accent dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl font-bold text-primary dark:text-primary mb-4">
+          Industrias que confían en Trakos
+        </h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-items-center opacity-75">
+        <div class="flex items-center justify-center h-12">
+          <span class="text-xl font-bold text-primary/70">Construcción</span>
+        </div>
+        <div class="flex items-center justify-center h-12">
+          <span class="text-xl font-bold text-primary/70">Minería</span>
+        </div>
+        <div class="flex items-center justify-center h-12">
+          <span class="text-xl font-bold text-primary/70">Manufactura</span>
+        </div>
+        <div class="flex items-center justify-center h-12">
+          <span class="text-xl font-bold text-primary/70">Comercio</span>
+        </div>
+        <div class="flex items-center justify-center h-12">
+          <span class="text-xl font-bold text-primary/70">Logística</span>
+        </div>
+        <div class="flex items-center justify-center h-12">
+          <span class="text-xl font-bold text-primary/70">Agroindustria</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated Features Widget ******* -->
+
+  <AnimatedFeatures id="features" />
 
   <!-- Content Widget **************** -->
 
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Casos de uso"
+    title="Una plataforma, infinitas posibilidades"
     items={[
       {
-        title: 'Built on top of Astro 5.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+        title: 'Gestión de proyectos',
+        description: 'Planifica, organiza y realiza un seguimiento del trabajo de tu equipo en un solo lugar.',
       },
       {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+        title: 'Seguimiento de objetivos',
+        description: 'Conecta el trabajo diario con los objetivos estratégicos de la empresa.',
       },
       {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+        title: 'Automatización de flujos',
+        description: 'Automatiza tareas repetitivas y libera tiempo para el trabajo que realmente importa.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: heroImage,
+      alt: 'Gestión de proyectos visual',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Transforma la manera en que tu equipo trabaja
+      </h3>
+      Desde startups hasta empresas Fortune 500, nuestra plataforma se adapta a las necesidades únicas de cada organización.
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800"></div>
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <!-- Testimonials Section ********** -->
+  
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Las principales empresas del mundo confían en nosotros
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Descubre cómo organizaciones líderes transforman su manera de trabajar
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+          <div class="mb-4">
+            <div class="flex items-center mb-2">
+              <span class="text-sm font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded">Construcción</span>
+              <span class="text-sm text-gray-500 ml-2">Infraestructura</span>
+            </div>
+          </div>
+          <blockquote class="text-gray-700 dark:text-gray-300 mb-4">
+            "Con Trakos hemos reducido en un 35% el tiempo de respuesta ante incidentes en obra, lo que nos ha permitido cumplir con los plazos de entrega incluso en proyectos complejos."
+          </blockquote>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+              CM
+            </div>
+            <div class="ml-3">
+              <p class="font-semibold text-gray-900 dark:text-white">Carlos Mendoza</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Director de Operaciones, Constructora Andina</p>
+            </div>
+          </div>
+        </div>
 
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+        <!-- Testimonial 2 -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+          <div class="mb-4">
+            <div class="flex items-center mb-2">
+              <span class="text-sm font-medium text-green-600 bg-green-100 px-2 py-1 rounded">Minería</span>
+              <span class="text-sm text-gray-500 ml-2">Extracción</span>
+            </div>
+          </div>
+          <blockquote class="text-gray-700 dark:text-gray-300 mb-4">
+            "Desde que implementamos Trakos, hemos mejorado la seguridad en nuestras operaciones en un 42%. La capacidad de monitorear en tiempo real nos permite prevenir situaciones de riesgo."
+          </blockquote>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">
+              LR
+            </div>
+            <div class="ml-3">
+              <p class="font-semibold text-gray-900 dark:text-white">Laura Rodríguez</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Gerente de Seguridad, Minera Norte</p>
+            </div>
+          </div>
+        </div>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+        <!-- Testimonial 3 -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+          <div class="mb-4">
+            <div class="flex items-center mb-2">
+              <span class="text-sm font-medium text-purple-600 bg-purple-100 px-2 py-1 rounded">Logística</span>
+              <span class="text-sm text-gray-500 ml-2">Distribución</span>
+            </div>
+          </div>
+          <blockquote class="text-gray-700 dark:text-gray-300 mb-4">
+            "Trakos transformó nuestra cadena de suministro. Hemos optimizado rutas en un 28% y reducido costos operativos en un 22% gracias al monitoreo en tiempo real de nuestra flota."
+          </blockquote>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
+              MV
+            </div>
+            <div class="ml-3">
+              <p class="font-semibold text-gray-900 dark:text-white">Miguel Vásquez</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Director de Logística, TransCargo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+          Explora todos los estudios de casos
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
-  <!-- Content Widget **************** -->
+  <!-- Demo Section ****************** -->
+  
+  <section class="py-16 bg-gradient-to-r from-accent to-white dark:from-gray-800 dark:to-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Comienza con Trakos hoy mismo
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Descubre cómo Trakos puede transformar tus operaciones con una demostración personalizada o descarga la aplicación
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Demo Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-center w-16 h-16 bg-accent dark:bg-primary/20 rounded-full mb-4 mx-auto">
+            <svg class="w-8 h-8 text-primary dark:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
+            Ver Trakos en acción
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
+            Demostración guiada de la plataforma
+          </p>
+          <div class="text-center">
+            <a href="#demo" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+              Solicitar demo
+              <div class="ml-2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
 
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
+        <!-- App Download Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full mb-4 mx-auto">
+            <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
+            Descargar Trakos
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
+            Disponible para iOS, Android y Web
+          </p>
+          <div class="text-center">
+            <a href="#download" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
+              Descargar ahora
+              <div class="ml-2 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
+        <!-- Support Card -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full mb-4 mx-auto">
+            <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
+            Soporte técnico 24/7
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
+            Asistencia especializada cuando la necesites
+          </p>
+          <div class="text-center">
+            <a href="#contact" class="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium">
+              Contactar soporte
+              <div class="ml-2 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Steps Widget ****************** -->
+  <!-- Beneficios de Trakos Section *********** -->
+  
+  <section class="py-16 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Beneficios que transforman tu operación diaria
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Eficiencia Operativa -->
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-6 mb-4">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-white font-semibold mb-2">Mayor Eficiencia Operativa</h3>
+            <p class="text-blue-100 text-sm">Reduce tiempos de respuesta y optimiza recursos con datos en tiempo real</p>
+          </div>
+          <a href="#features" class="text-blue-600 hover:text-blue-700 font-medium text-sm">
+            Descubre cómo →
+          </a>
+        </div>
 
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
+        <!-- Toma de Decisiones -->
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-green-500 to-teal-600 rounded-lg p-6 mb-4">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-white font-semibold mb-2">Decisiones Informadas</h3>
+            <p class="text-green-100 text-sm">Accede a reportes precisos y análisis predictivos para anticiparte a problemas</p>
+          </div>
+          <a href="#app-showcase" class="text-green-600 hover:text-green-700 font-medium text-sm">
+            Ver dashboard →
+          </a>
+        </div>
+
+        <!-- ROI Comprobado -->
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg p-6 mb-4">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-white font-semibold mb-2">ROI Comprobado</h3>
+            <p class="text-purple-100 text-sm">Nuestros clientes reportan un retorno de inversión promedio del 40% en el primer año</p>
+          </div>
+          <a href="#pricing" class="text-purple-600 hover:text-purple-700 font-medium text-sm">
+            Ver planes →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
+    title="Funcionalidades clave de Trakos"
+    subtitle="Herramientas especializadas para optimizar tus operaciones diarias"
+    tagline="Características principales"
     items={[
       {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
+        title: 'Reportes en tiempo real',
+        description: 'Accede a información actualizada al minuto desde el campo, sin esperas ni retrasos.',
         icon: 'flat-color-icons:document',
       },
       {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
+        title: 'Inteligencia predictiva',
+        description: 'Anticipa problemas operativos con análisis avanzados basados en patrones históricos.',
+        icon: 'flat-color-icons:approval',
       },
       {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
+        title: 'Gestión de inventario',
+        description: 'Control preciso de existencias con alertas automáticas para reposición y optimización.',
         icon: 'flat-color-icons:database',
+      },
+      {
+        title: 'Seguimiento GPS',
+        description: 'Monitoreo de activos y personal en campo con visualización en mapas interactivos.',
+        icon: 'flat-color-icons:gallery',
+      },
+      {
+        title: 'Tableros personalizables',
+        description: 'Configura tus propias vistas de datos según las necesidades específicas de tu industria.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Trabajo sin conexión',
+        description: 'Sigue operando incluso sin internet, con sincronización automática cuando vuelvas a conectarte.',
+        icon: 'flat-color-icons:business-contact',
       },
     ]}
   >
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800"></div>
     </Fragment>
   </Features2>
 
-  <!-- HighlightedPosts Widget ******* -->
+  <!-- Modern Testimonials Widget **** -->
 
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
+  <ModernTestimonials id="testimonials" />
 
-  <!-- FAQs Widget ******************* -->
+  <!-- Pricing Plans Widget ********** -->
 
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
+  <PricingPlans id="pricing" />
 
   <!-- CallToAction Widget *********** -->
 
@@ -380,20 +443,28 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
+        text: 'Descargar Trakos Ahora',
+        href: '#download',
         icon: 'tabler:download',
+      },
+      {
+        text: 'Solicitar Demostración Personalizada',
+        href: '#contact',
+        variant: 'secondary',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      Optimiza tus Operaciones con Trakos
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Transforma la manera en que gestionas tus operaciones diarias con nuestra plataforma inteligente. 
+      <br class="hidden md:inline" />Únete a las empresas líderes que ya están mejorando su eficiencia operativa con Trakos.
     </Fragment>
   </CallToAction>
+  
+  <!-- Floating CTA Widget *********** -->
+  
+  <FloatingCTA />
 </Layout>

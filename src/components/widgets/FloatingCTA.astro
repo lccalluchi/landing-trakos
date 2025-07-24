@@ -1,0 +1,68 @@
+---
+import Button from '~/components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+
+const {
+  title = '¿Listo para transformar tu gestión operativa?',
+  primaryButtonText = 'Descargar Trakos Ahora',
+  primaryButtonLink = '#download',
+  secondaryButtonText = 'Escríbenos por Chat',
+  secondaryButtonLink = '#contact',
+} = Astro.props;
+---
+
+<div id="floating-cta" class="fixed bottom-0 left-0 right-0 z-50 translate-y-full transform bg-white p-4 shadow-lg transition-transform duration-300 ease-in-out dark:bg-gray-800">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
+    <div class="flex items-center">
+      <div class="mr-4 hidden h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary text-white md:flex">
+        <Icon name="tabler:rocket" class="h-6 w-6" />
+      </div>
+      <h3 class="text-lg font-bold text-primary dark:text-primary md:text-xl">{title}</h3>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <Button 
+        variant="primary" 
+        text={primaryButtonText} 
+        href={primaryButtonLink}
+        class="shadow-lg shadow-primary/20"
+      />
+      <Button 
+        variant="secondary" 
+        text={secondaryButtonText} 
+        href={secondaryButtonLink}
+      />
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mostrar/ocultar CTA flotante basado en el scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const floatingCTA = document.getElementById('floating-cta');
+    const heroSection = document.querySelector('section:first-of-type');
+    let lastScrollPosition = 0;
+    let scrollingDown = false;
+    
+    if (floatingCTA && heroSection) {
+      const handleScroll = () => {
+        const currentScrollPosition = window.scrollY;
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        
+        // Determinar dirección del scroll
+        scrollingDown = currentScrollPosition > lastScrollPosition;
+        lastScrollPosition = currentScrollPosition;
+        
+        // Mostrar CTA cuando el usuario ha pasado la sección hero y está scrolleando hacia arriba
+        if (currentScrollPosition > heroBottom && !scrollingDown) {
+          floatingCTA.classList.remove('translate-y-full');
+          floatingCTA.classList.add('translate-y-0');
+        } else {
+          floatingCTA.classList.remove('translate-y-0');
+          floatingCTA.classList.add('translate-y-full');
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }
+  });
+</script>

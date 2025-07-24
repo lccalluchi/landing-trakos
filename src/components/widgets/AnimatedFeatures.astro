@@ -1,0 +1,128 @@
+---
+import { Icon } from 'astro-icon/components';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+const {
+  title = '¿Qué Puedes Lograr con Trakos?',
+  subtitle = 'Descubre las características que hacen única nuestra plataforma de gestión operativa',
+  tagline = 'Qué nos diferencia del resto',
+  id,
+  isDark = false,
+  classes = {},
+  bg = undefined,
+} = Astro.props;
+
+const features = [
+  {
+    title: 'Reportes Automáticos de Desempeño y Productividad',
+    description: 'Cada jornada, Trakos transforma el caos de datos en reportes claros. No solo sabrás qué se hizo, sino quién lo hizo, cuándo, con qué nivel de rendimiento y a qué costo.',
+    icon: 'tabler:chart-dots',
+    color: 'bg-primary'
+  },
+  {
+    title: 'Anticipación Inteligente para Decisiones Estratégicas',
+    description: 'Trakos va más allá de la simple información. Te permite anticipar desviaciones antes de que escalen a pérdidas significativas. Dirige tu equipo y tus proyectos con la certeza que solo los datos precisos pueden ofrecer.',
+    icon: 'tabler:target',
+    color: 'bg-secondary'
+  },
+  {
+    title: 'Datos en Tiempo Real desde el Campo',
+    description: 'Supervisa, controla y mejora tu operación con datos fiables directamente desde el campo.',
+    icon: 'tabler:bolt',
+    color: 'bg-primary'
+  },
+  {
+    title: 'Acceso Multiplataforma',
+    description: 'Funciona en dispositivos móviles y navegadores web. Tu equipo puede acceder desde cualquier lugar.',
+    icon: 'tabler:device-mobile',
+    color: 'bg-secondary'
+  },
+  {
+    title: 'Potencia tu impacto con la IA',
+    description: 'Deja que la IA se encargue del trabajo por ti, con todo el contexto de tu negocio, para que tus equipos puedan alcanzar sus objetivos más rápido.',
+    icon: 'tabler:brain',
+    color: 'bg-primary'
+  },
+  {
+    title: 'Conecta más de 300 integraciones',
+    description: 'Integra todas las herramientas que tu equipo ya usa y ama. Desde Slack hasta Adobe, conecta tu flujo de trabajo completo.',
+    icon: 'tabler:plug-connected',
+    color: 'bg-secondary'
+  }
+];
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      container: 'max-w-xl sm:mx-auto lg:max-w-2xl mb-12',
+      title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading text-primary dark:text-primary',
+      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-secondary dark:text-accent',
+    }}
+  />
+  
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {features.map((feature, index) => (
+      <div class="feature-card relative overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800" data-aos="fade-up" data-aos-delay={index * 100}>
+        <div class="feature-icon-wrapper mb-6 flex h-16 w-16 items-center justify-center rounded-full shadow-lg transition-transform duration-300 ease-in-out">
+          <div class={`feature-icon flex h-12 w-12 items-center justify-center rounded-full ${feature.color} text-white`}>
+            <Icon name={feature.icon} class="h-6 w-6" />
+          </div>
+        </div>
+        <h3 class="mb-3 text-xl font-bold text-primary dark:text-primary">{feature.title}</h3>
+        <p class="text-muted dark:text-gray-400">{feature.description}</p>
+        
+        <div class="feature-bg absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent opacity-10"></div>
+      </div>
+    ))}
+  </div>
+</WidgetWrapper>
+
+<style>
+  .feature-card:hover .feature-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  .feature-card:hover .feature-bg {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.1;
+    }
+    70% {
+      transform: scale(1.2);
+      opacity: 0.15;
+    }
+    100% {
+      transform: scale(0.95);
+      opacity: 0.1;
+    }
+  }
+</style>
+
+<script>
+  // Animación al hacer scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.feature-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
