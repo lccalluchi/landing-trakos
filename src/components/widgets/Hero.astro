@@ -1,7 +1,6 @@
 ---
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
-import Header from '~/components/widgets/Header.astro';
 
 import type { Hero as Props } from '~/types';
 
@@ -21,27 +20,34 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose overflow-hidden header-hero" {...id ? { id } : {}}>
-  <div class="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat bg_cover" aria-hidden="true" style={bgImage ? `background-image: url('${bgImage}')` : undefined}>
-    <div class="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-blue-500/80"></div>
+<section class="relative not-prose overflow-hidden header-hero" {...id ? { id } : {}}>
+  <div
+    class="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat bg_cover"
+    aria-hidden="true"
+    style={bgImage ? `background-image: url('${bgImage}')` : undefined}
+  >
+    <!-- Gradiente con mucho más fondo blanco -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/75"></div>
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
-  
+
   <!-- Wave shape at bottom -->
   <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-    <svg class="relative block w-full h-24 sm:h-32 md:h-40 lg:h-48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <svg
+      class="relative block w-full h-24 sm:h-32 md:h-40 lg:h-48"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
       <path d="M0,80 Q300,40 600,60 Q900,80 1200,80 L1200,120 L0,120 Z" class="fill-current text-accent"></path>
     </svg>
   </div>
-  
-  <!-- Header dentro del Hero -->
-  {headerData && <Header {...headerData} isSticky={false} showRssFeed showToggleTheme />}
-  
+
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center">
     <div class="w-full py-16 sm:py-20 md:py-24 lg:py-32">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto relative z-10">
+      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto relative z-[5]">
         {
           tagline && (
             <p
@@ -86,7 +92,7 @@ const {
         {content && <Fragment set:html={content} />}
       </div>
       <div
-        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade relative z-10 mt-8"
+        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade relative z-[5] mt-8"
       >
         {
           image && (
@@ -129,31 +135,31 @@ const {
     height: 600px;
     position: relative;
   }
-  
+
   @media (min-width: 640px) {
     .header-hero {
       height: 750px;
     }
   }
-  
+
   @media (min-width: 768px) {
     .header-hero {
       height: 900px;
     }
   }
-  
+
   @media (min-width: 1024px) {
     .header-hero {
       height: 1000px;
     }
   }
-  
+
   @media (min-width: 1280px) {
     .header-hero {
       height: 1100px;
     }
   }
-  
+
   .bg_cover {
     background-position: center center;
     background-size: cover;

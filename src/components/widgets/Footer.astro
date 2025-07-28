@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { SITE } from 'astrowind:config';
 import { getHomePermalink } from '~/utils/permalinks';
+import SectionWrapper from '../common/SectionWrapper.astro';
 
 interface Link {
   text?: string;
@@ -23,82 +24,117 @@ export interface Props {
   theme?: string;
 }
 
-const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'dark' } = Astro.props;
 ---
 
-<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
-  <div class="dark:bg-dark absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div
-    class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-  >
-    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
-      <div class="col-span-12 lg:col-span-4">
-        <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
+<footer class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+  <SectionWrapper>
+    <!-- Sección principal del footer -->
+    <div class="py-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Columna izquierda: Información de la empresa -->
+      <div class="space-y-8">
+
+        <!-- Información de contacto -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-semibold text-white mb-4">Contacto</h3>
+
+          <div class="flex items-center space-x-3 group cursor-pointer">
+            <div class="bg-blue-500/20 p-2 rounded-lg group-hover:bg-blue-500/30 transition-colors">
+              <Icon name="tabler:phone" class="w-5 h-5 text-blue-400" />
+            </div>
+            <span class="text-gray-300 group-hover:text-white transition-colors">+1 305 555 5555</span>
+          </div>
+
+          <div class="flex items-center space-x-3 group cursor-pointer">
+            <div class="bg-green-500/20 p-2 rounded-lg group-hover:bg-green-500/30 transition-colors">
+              <Icon name="tabler:mail" class="w-5 h-5 text-green-400" />
+            </div>
+            <span class="text-gray-300 group-hover:text-white transition-colors">info@trakos.net</span>
+          </div>
+
+          <div class="flex items-start space-x-3 group">
+            <div class="bg-orange-500/20 p-2 rounded-lg group-hover:bg-orange-500/30 transition-colors">
+              <Icon name="tabler:map-pin" class="w-5 h-5 text-orange-400" />
+            </div>
+            <div class="text-gray-300 group-hover:text-white transition-colors">
+              <div>701 Brickell Avenue, Suite 1500</div>
+              <div>Miami, FL 33131 – Estados Unidos</div>
+            </div>
+          </div>
         </div>
-        <div class="text-sm text-muted flex gap-1">
-          {
-            secondaryLinks.map(({ text, href }, index) => (
-              <>
-                {index !== 0 ? ' · ' : ''}
-                <a
-                  class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out"
-                  href={href}
-                  set:html={text}
-                />
-              </>
-            ))
-          }
+
+        <!-- Redes sociales -->
+        {
+          socialLinks?.length ? (
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-4">Síguenos</h3>
+              <div class="flex space-x-3">
+                {socialLinks.map(({ ariaLabel, href, icon }) => (
+                  <a
+                    class="bg-slate-700/50 hover:bg-blue-500/20 p-3 rounded-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 group"
+                    aria-label={ariaLabel}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon
+                      name={icon}
+                      class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : (
+            ''
+          )
+        }
+      </div>
+
+      <!-- Columna derecha: Mapa interactivo -->
+      <div class="lg:pl-8">
+        <h3 class="text-xl font-semibold text-white mb-4">Nuestra Ubicación</h3>
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-4 border border-slate-700/50">
+          <div class="relative h-64 rounded-xl overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8!2d-80.1917902!3d25.7616798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b484c7c1c1c1%3A0x1234567890abcdef!2s701%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style="border:0; border-radius: 12px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de TRAKOS en Miami"
+              class="hover:scale-105 transition-transform duration-300"
+            >
+            </iframe>
+          </div>
         </div>
       </div>
-      {
-        links.map(({ title, links }) => (
-          <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class="dark:text-gray-300 font-medium mb-2">{title}</div>
-            {links && Array.isArray(links) && links.length > 0 && (
-              <ul class="text-sm">
-                {links.map(({ text, href, ariaLabel }) => (
-                  <li class="mb-2">
-                    <a
-                      class="text-muted hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out"
-                      href={href}
-                      aria-label={ariaLabel}
-                    >
-                      <Fragment set:html={text} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))
-      }
     </div>
-    <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
-      {
-        socialLinks?.length ? (
-          <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
-            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-              <li>
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
+
+    <!-- Footer bottom -->
+    <div class="border-t border-slate-700/50 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <!-- Copyright -->
+        <div class="text-sm text-gray-400">
+          <span class="font-medium text-white">TRAKOS LLC</span> © {new Date().getFullYear()}. Todos los derechos
+          reservados.
+        </div>
+
+        <!-- Enlaces secundarios -->
+        {
+          secondaryLinks?.length > 0 && (
+            <div class="flex space-x-6">
+              {secondaryLinks.map(({ text, href }) => (
+                <a class="text-sm text-gray-400 hover:text-white transition-colors duration-300" href={href}>
                   <Fragment set:html={text} />
                 </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          ''
-        )
-      }
-
-      <div class="text-sm mr-4 dark:text-muted">
-        <Fragment set:html={footNote} />
+              ))}
+            </div>
+          )
+        }
       </div>
     </div>
-  </div>
+  </SectionWrapper>
 </footer>

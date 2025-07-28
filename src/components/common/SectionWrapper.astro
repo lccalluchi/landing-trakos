@@ -1,0 +1,15 @@
+---
+export interface Props {
+  containerClass?: string;
+  class?: string;
+  id?: string;
+}
+
+const { containerClass = '', class: className = '', id, ...rest } = Astro.props;
+---
+
+<section class:list={[className]} id={id} {...rest}>
+  <div class:list={['max-w-7xl mx-auto px-6 sm:px-8 lg:px-12', containerClass]}>
+    <slot />
+  </div>
+</section>

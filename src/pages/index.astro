@@ -1,29 +1,18 @@
 ---
-import Layout from '../layouts/PageLayout.astro';
-
-import Hero from '../components/widgets/Hero.astro';
-import { headerData } from '../navigation';
-import Features2 from '../components/widgets/Features2.astro';
-import Content from '../components/widgets/Content.astro';
-import CallToAction from '../components/widgets/CallToAction.astro';
-import heroImage from '../assets/images/hero-image.png';
+import { Icon } from 'astro-icon/components';
+import headerImage from '../assets/images/header-5.jpg';
 import planetImage from '../assets/images/planet.png';
-import planetOverlay from '../assets/images/planet-overlay.svg';
-
-// Nuevos componentes innovadores
+import SectionWrapper from '../components/common/SectionWrapper.astro';
 import AppShowcase from '../components/widgets/AppShowcase.astro';
-import AnimatedFeatures from '../components/widgets/AnimatedFeatures.astro';
-import ModernTestimonials from '../components/widgets/ModernTestimonials.astro';
-import PricingPlans from '../components/widgets/PricingPlans.astro';
-import AnimatedStats from '../components/widgets/AnimatedStats.astro';
-import FloatingCTA from '../components/widgets/FloatingCTA.astro';
+import Hero from '../components/widgets/Hero.astro';
+import Layout from '../layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Trakos: La Inteligencia Operativa que Transforma tu Gestión Diaria',
-  description: 'Desde el campo, en tiempo real, con datos accionables. Trakos es una aplicación multiplataforma potenciada por inteligencia artificial diseñada para ser tu compañero indispensable en la gestión operativa diaria.',
+  description:
+    'Desde el campo, en tiempo real, con datos accionables. Trakos es una aplicación multiplataforma potenciada por inteligencia artificial diseñada para ser tu compañero indispensable en la gestión operativa diaria.',
   ignoreTitleTemplate: true,
 };
-
 ---
 
 <Layout metadata={metadata}>
@@ -37,610 +26,341 @@ const metadata = {
         href: '#download',
         icon: 'tabler:download',
       },
-      { 
-        text: 'Escríbenos por Chat', 
-        href: '#contact',
-        variant: 'secondary'
-      },
-    ]}
-    bgImage="/src/assets/images/header-5.jpg"
-    headerData={headerData}
-  >
-    <Fragment slot="tagline">
-      INTELIGENCIA ARTIFICIAL PARA TUS OPERACIONES
-    </Fragment>
-    
-    <Fragment slot="title">
-      Donde tus <span class="text-primary dark:text-primary">equipos y la IA</span> coordinan el trabajo juntos
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="text-xl">
-        En Trakos, comprendemos que los líderes de proyectos, gerentes y equipos en campo necesitan un socio estratégico que les ofrezca una visión clara y en tiempo real de lo que realmente sucede en cada operación.
-      </span>
-    </Fragment>
-  </Hero>
-
-  <!-- App Showcase Widget ************ -->
-  
-  <AppShowcase id="app-showcase" />
-
-  <!-- Animated Stats Widget ********** -->
-
-  <AnimatedStats id="stats" />
-
-  <!-- Global Collaboration Section ***************** -->
-  
-  <section class="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative">
-      <!-- Header -->
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-          Donde tus equipos y la IA coordinan el trabajo juntos
-        </h2>
-        <p class="text-xl text-blue-200 max-w-3xl mx-auto">
-          Conecta equipos globales con inteligencia artificial avanzada para una colaboración sin límites
-        </p>
-      </div>
-
-      <!-- Planet Container -->
-      <div class="relative flex items-center justify-center min-h-[600px]">
-        <!-- Planet with all layers -->
-        <div class="relative z-10 planet-container" style="width: 450px; height: 450px;">
-          <img 
-            src={planetImage.src} 
-            alt="Planet Base"
-            class="absolute inset-0 w-full h-full object-cover planet-base"
-          />
-          <div class="planet-glow"></div>
-          <img 
-            src={planetOverlay.src} 
-            alt="Planet Overlay"
-            class="absolute inset-0 w-full h-full object-contain planet-overlay"
-          />
-        </div>
-
-        <!-- Floating Cards - Final Minimalist Layout -->
-        <!-- Top-Right Card (Mary) -->
-        <div class="absolute top-16 right-1/4 planet-card p-3 animate-float">
-          <div class="flex items-center">
-            <div class="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center mr-2"><span class="text-white text-xs font-bold">M</span></div>
-            <div>
-              <p class="text-white font-medium text-sm">mary-w/saas-website</p>
-              <p class="text-blue-300 text-xs">Milan, Italy</p>
-            </div>
-            <div class="ml-3 text-blue-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
-          </div>
-        </div>
-
-        <!-- Left Card (Mark) -->
-        <div class="absolute top-1/2 left-12 -translate-y-1/2 planet-card p-3 animate-float-delayed">
-          <div class="flex items-center">
-            <div class="w-7 h-7 bg-blue-500 rounded-full flex items-center justify-center mr-2"><span class="text-white text-xs font-bold">M</span></div>
-            <div>
-              <p class="text-white font-medium text-sm">mark-s/website-tweaks</p>
-              <p class="text-blue-300 text-xs">Amsterdam, Netherlands</p>
-            </div>
-            <div class="ml-3 text-blue-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
-          </div>
-        </div>
-
-        <!-- Bottom-Left Card (Mary) -->
-        <div class="absolute bottom-24 left-1/4 planet-card p-3 animate-float">
-          <div class="flex items-center">
-            <div class="w-7 h-7 bg-purple-500 rounded-full flex items-center justify-center mr-2"><span class="text-white text-xs font-bold">M</span></div>
-            <div>
-              <p class="text-white font-medium text-sm">mary-w/new-redesign</p>
-              <p class="text-blue-300 text-xs">New York, NY</p>
-            </div>
-            <div class="ml-3 text-blue-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
-          </div>
-        </div>
-
-        <!-- Right Card (Eric) -->
-        <div class="absolute top-1/2 right-24 -translate-y-8 planet-card p-3 animate-float-delayed">
-          <div class="flex items-center">
-            <div class="w-7 h-7 bg-orange-500 rounded-full flex items-center justify-center mr-2"><span class="text-white text-xs font-bold">E</span></div>
-            <div>
-              <p class="text-white font-medium text-sm">eric-w/freeform-canvas</p>
-              <p class="text-blue-300 text-xs">London, UK</p>
-            </div>
-            <div class="ml-3 text-blue-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Features Grid Below Planet -->
-      <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Instant Analytics -->
-        <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold text-lg">📊 Instant Analytics</h3>
-          </div>
-          <p class="text-blue-200 text-sm leading-relaxed">
-            Collect essential insights about how visitors are using your site with in-depth page view metrics like pages, referring sites, and more.
-          </p>
-        </div>
-
-        <!-- Metadata -->
-        <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold text-lg">✅ Metadata</h3>
-          </div>
-          <p class="text-blue-200 text-sm leading-relaxed">
-            Collect essential insights about how visitors are using your site with in-depth page view metrics like pages, referring sites, and more.
-          </p>
-        </div>
-
-        <!-- SEO & Performance -->
-        <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold text-lg">🔍 SEO & Performance</h3>
-          </div>
-          <p class="text-blue-200 text-sm leading-relaxed">
-            Collect essential insights about how visitors are using your site with in-depth page view metrics like pages, referring sites, and more.
-          </p>
-        </div>
-
-        <!-- Custom Code -->
-        <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold text-lg">⚡ Custom Code</h3>
-          </div>
-          <p class="text-blue-200 text-sm leading-relaxed">
-            Collect essential insights about how visitors are using your site with in-depth page view metrics like pages, referring sites, and more.
-          </p>
-        </div>
-
-        <!-- Localization -->
-        <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z" clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold text-lg">🌍 Localization</h3>
-          </div>
-          <p class="text-blue-200 text-sm leading-relaxed">
-            Collect essential insights about how visitors are using your site with in-depth page view metrics like pages, referring sites, and more.
-          </p>
-        </div>
-
-        <!-- Canonical URL -->
-        <div class="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
-          <div class="flex items-center mb-4">
-            <div class="w-10 h-10 bg-pink-500 rounded-lg flex items-center justify-center mr-4">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold text-lg">🔗 Canonical URL</h3>
-          </div>
-          <p class="text-blue-200 text-sm leading-relaxed">
-            Collect essential insights about how visitors are using your site with in-depth page view metrics like pages, referring sites, and more.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Background Effects -->
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 pointer-events-none"></div>
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
-  </section>
-
-  <!-- Animated Features Widget ******* -->
-
-  <AnimatedFeatures id="features" />
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Casos de uso"
-    title="Una plataforma, infinitas posibilidades"
-    items={[
-      {
-        title: 'Gestión de proyectos',
-        description: 'Planifica, organiza y realiza un seguimiento del trabajo de tu equipo en un solo lugar.',
-      },
-      {
-        title: 'Seguimiento de objetivos',
-        description: 'Conecta el trabajo diario con los objetivos estratégicos de la empresa.',
-      },
-      {
-        title: 'Automatización de flujos',
-        description: 'Automatiza tareas repetitivas y libera tiempo para el trabajo que realmente importa.',
-      },
-    ]}
-    image={{
-      src: heroImage,
-      alt: 'Gestión de proyectos visual'
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Transforma la manera en que tu equipo trabaja
-      </h3>
-      Desde startups hasta empresas Fortune 500, nuestra plataforma se adapta a las necesidades únicas de cada organización.
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Testimonials Section ********** -->
-  
-  <section class="py-16 bg-white dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          Las principales empresas del mundo confían en nosotros
-        </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300">
-          Descubre cómo organizaciones líderes transforman su manera de trabajar
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-          <div class="mb-4">
-            <div class="flex items-center mb-2">
-              <span class="text-sm font-medium text-blue-600 bg-blue-100 px-2 py-1 rounded">Construcción</span>
-              <span class="text-sm text-gray-500 ml-2">Infraestructura</span>
-            </div>
-          </div>
-          <blockquote class="text-gray-700 dark:text-gray-300 mb-4">
-            "Con Trakos hemos reducido en un 35% el tiempo de respuesta ante incidentes en obra, lo que nos ha permitido cumplir con los plazos de entrega incluso en proyectos complejos."
-          </blockquote>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-              CM
-            </div>
-            <div class="ml-3">
-              <p class="font-semibold text-gray-900 dark:text-white">Carlos Mendoza</p>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Director de Operaciones, Constructora Andina</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-          <div class="mb-4">
-            <div class="flex items-center mb-2">
-              <span class="text-sm font-medium text-green-600 bg-green-100 px-2 py-1 rounded">Minería</span>
-              <span class="text-sm text-gray-500 ml-2">Extracción</span>
-            </div>
-          </div>
-          <blockquote class="text-gray-700 dark:text-gray-300 mb-4">
-            "Desde que implementamos Trakos, hemos mejorado la seguridad en nuestras operaciones en un 42%. La capacidad de monitorear en tiempo real nos permite prevenir situaciones de riesgo."
-          </blockquote>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">
-              LR
-            </div>
-            <div class="ml-3">
-              <p class="font-semibold text-gray-900 dark:text-white">Laura Rodríguez</p>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Gerente de Seguridad, Minera Norte</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-          <div class="mb-4">
-            <div class="flex items-center mb-2">
-              <span class="text-sm font-medium text-purple-600 bg-purple-100 px-2 py-1 rounded">Logística</span>
-              <span class="text-sm text-gray-500 ml-2">Distribución</span>
-            </div>
-          </div>
-          <blockquote class="text-gray-700 dark:text-gray-300 mb-4">
-            "Trakos transformó nuestra cadena de suministro. Hemos optimizado rutas en un 28% y reducido costos operativos en un 22% gracias al monitoreo en tiempo real de nuestra flota."
-          </blockquote>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
-              MV
-            </div>
-            <div class="ml-3">
-              <p class="font-semibold text-gray-900 dark:text-white">Miguel Vásquez</p>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Director de Logística, TransCargo</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-12">
-        <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
-          Explora todos los estudios de casos
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Demo Section ****************** -->
-  
-  <section class="py-16 bg-gradient-to-r from-accent to-white dark:from-gray-800 dark:to-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          ¿Cómo Funciona Trakos?
-        </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300">
-          La eficiencia en 4 pasos sencillos para transformar tu gestión operativa
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-4 gap-8">
-        <!-- Paso 1 -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <div class="flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-primary/20 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold text-primary">1</span>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
-            Crea tu Cuenta
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
-            Descarga la app, configura tu proyecto y registra a tu equipo. Solo tú pagas la suscripción.
-          </p>
-          <div class="text-center">
-            <a href="#download" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
-              Descargar app
-              <div class="ml-2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Paso 2 -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <div class="flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold text-green-600">2</span>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
-            Planifica Tareas y Objetivos
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
-            Asigna metas diarias por trabajador, usando tus propias unidades y criterios de medición.
-          </p>
-          <div class="text-center">
-            <a href="#features" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
-              Ver funcionalidades
-              <div class="ml-2 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Paso 3 -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <div class="flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold text-purple-600">3</span>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
-            Captura Datos en Tiempo Real
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
-            Tu equipo registra avances desde el campo, incluso sin internet. La sincronización es automática.
-          </p>
-          <div class="text-center">
-            <a href="#testimonials" class="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium">
-              Ver testimonios
-              <div class="ml-2 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Paso 4 -->
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <div class="flex items-center justify-center w-16 h-16 bg-amber-100 dark:bg-amber-900 rounded-full mb-4 mx-auto">
-            <span class="text-2xl font-bold text-amber-600">4</span>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 text-center">
-            Analiza y Optimiza
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-center mb-4">
-            Recibe reportes automáticos con IA que identifican problemas y oportunidades de mejora en tiempo real.
-          </p>
-          <div class="text-center">
-            <a href="#pricing" class="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium">
-              Ver planes
-              <div class="ml-2 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beneficios de Trakos Section *********** -->
-  
-  <section class="py-16 bg-white dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          Beneficios que transforman tu operación diaria
-        </h2>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Eficiencia Operativa -->
-        <div class="text-center">
-          <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-6 mb-4">
-            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold mb-2">Mayor Eficiencia Operativa</h3>
-            <p class="text-blue-100 text-sm">Reduce tiempos de respuesta y optimiza recursos con datos en tiempo real</p>
-          </div>
-          <a href="#features" class="text-blue-600 hover:text-blue-700 font-medium text-sm">
-            Descubre cómo →
-          </a>
-        </div>
-
-        <!-- Toma de Decisiones -->
-        <div class="text-center">
-          <div class="bg-gradient-to-r from-green-500 to-teal-600 rounded-lg p-6 mb-4">
-            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold mb-2">Decisiones Informadas</h3>
-            <p class="text-green-100 text-sm">Accede a reportes precisos y análisis predictivos para anticiparte a problemas</p>
-          </div>
-          <a href="#app-showcase" class="text-green-600 hover:text-green-700 font-medium text-sm">
-            Ver dashboard →
-          </a>
-        </div>
-
-        <!-- ROI Comprobado -->
-        <div class="text-center">
-          <div class="bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg p-6 mb-4">
-            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-white font-semibold mb-2">ROI Comprobado</h3>
-            <p class="text-purple-100 text-sm">Nuestros clientes reportan un retorno de inversión promedio del 40% en el primer año</p>
-          </div>
-          <a href="#pricing" class="text-purple-600 hover:text-purple-700 font-medium text-sm">
-            Ver planes →
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="¿Qué Puedes Lograr con Trakos?"
-    subtitle="Con Trakos, transformas la gestión operativa en datos accionables y reportes precisos"
-    tagline="Funcionalidades clave"
-    items={[
-      {
-        title: 'Define Objetivos Diarios Claros',
-        description: 'Planifica tareas con unidades de medida personalizadas (m³, TM, galones, unidades vendidas, horas-máquina, km, etc.).',
-        icon: 'flat-color-icons:todo-list',
-      },
-      {
-        title: 'Datos del Campo en Tiempo Real',
-        description: 'Tus equipos registran avances desde su móvil, incluyendo objetivos, comentarios y fotos con evidencia visual.',
-        icon: 'flat-color-icons:smartphone-tablet',
-      },
-      {
-        title: 'Anticípate a los Problemas',
-        description: 'Identifica retrasos, consumos excesivos, bajo rendimiento o cuellos de botella antes de que afecten tus metas.',
-        icon: 'flat-color-icons:bullish',
-      },
-      {
-        title: 'Reportes Automáticos Profesionales',
-        description: 'Genera informes en PDF con gráficos, indicadores de cumplimiento, alertas y evidencias visuales. Listos para la gerencia.',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Roles Adaptados a Responsabilidades',
-        description: 'Administradores gestionan y analizan; Trabajadores solo ingresan avances. Todo tu equipo accede gratis desde móvil o PC.',
-        icon: 'flat-color-icons:businesswoman',
-      },
-      {
-        title: 'Adaptable a Múltiples Industrias',
-        description: 'Funciona en construcción, minería, manufactura, comercio, logística y agroindustria. Se adapta a tu realidad específica.',
-        icon: 'flat-color-icons:factory',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- Modern Testimonials Widget **** -->
-
-  <ModernTestimonials id="testimonials" />
-
-  <!-- Pricing Plans Widget ********** -->
-
-  <PricingPlans id="pricing" />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Asegura tu Plan Trakos Ahora',
-        href: '#download',
-        icon: 'tabler:download',
-      },
       {
         text: 'Escríbenos por Chat',
         href: '#contact',
         variant: 'secondary',
       },
     ]}
+    bgImage={headerImage.src}
   >
+    <Fragment slot="tagline"> INTELIGENCIA ARTIFICIAL PARA TUS OPERACIONES </Fragment>
+
     <Fragment slot="title">
-      Oferta de Lanzamiento: Control Total por Solo $37/año
+      Donde tus <span class="text-primary dark:text-primary">equipos y la IA</span> coordinan el trabajo juntos
     </Fragment>
 
     <Fragment slot="subtitle">
-      ¡No dejes que los datos te frenen! Por lanzamiento, Trakos pone en tus manos la inteligencia operativa que necesitas a un precio único.
-      <br class="hidden md:inline" />
-      <ul class="list-disc list-inside text-left max-w-xl mx-auto mt-4 space-y-2">
-        <li><span class="font-semibold">Hasta 100 Trabajadores:</span> Lidera equipos completos sin límites.</li>
-        <li><span class="font-semibold">1,000 Créditos de IA:</span> Recibe reportes clave al instante.</li>
-        <li><span class="font-semibold">Recargas Flexibles:</span> Más reportes cuando los necesites.</li>
-      </ul>
-      <p class="mt-4">Esta es tu oportunidad de tomar decisiones con datos reales y precisos, anticiparte a los problemas y asegurar la máxima eficiencia.</p>
+      <span class="text-xl">
+        En Trakos, comprendemos que los líderes de proyectos, gerentes y equipos en campo necesitan un socio estratégico
+        que les ofrezca una visión clara y en tiempo real de lo que realmente sucede en cada operación.
+      </span>
     </Fragment>
-  </CallToAction>
-  
-  <!-- Floating CTA Widget *********** -->
-  
-  <FloatingCTA />
+  </Hero>
+
+  <!-- App Showcase Widget ************ -->
+
+  <AppShowcase id="app-showcase" />
+
+  <!-- Global Collaboration Section ***************** -->
+  <SectionWrapper
+    class="pt-12 pb-32 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden"
+  >
+    <!-- Header con espaciado mejorado -->
+    <div class="text-center max-w-3xl mx-auto mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4 font-heading">
+        Alcance Global, Impacto Local
+      </h2>
+
+      <p class="text-lg text-blue-200 max-w-2xl mx-auto mb-6">
+        Desde nuestra base en Miami, Florida, Trakos impulsa la eficiencia en Estados Unidos y expande su impacto a
+        Latinoamérica, Europa y Asia.
+      </p>
+    </div>
+
+    <!-- Planet Container -->
+    <div
+      class="relative flex items-center justify-center min-h-[500px] planet-hover-container mb-8 z-[1] max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"
+    >
+      <!-- Planet with all layers -->
+      <div class="relative z-[2] planet-container" style="width: 450px; height: 450px;">
+        <img src={planetImage.src} alt="Planet Base" class="absolute inset-0 w-full h-full object-cover planet-base" />
+        <div class="planet-glow"></div>
+        <!-- Floating Buttons around the planet - BASADO EN DISTRIBUTION.MD -->
+        <!-- Button 1: Miami -->
+        <div class="absolute top-16 left-4 z-[3] animate-bounce" style="animation-delay: 0s; animation-duration: 3s;">
+          <button
+            class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+          >
+            <Icon name="tabler:building-skyscraper" class="w-4 h-4" />
+            <span class="text-sm font-medium">Miami</span>
+          </button>
+        </div>
+
+        <!-- Button 2: Latinoamérica -->
+        <div
+          class="absolute bottom-[15%] left-[25%] z-[3] animate-bounce"
+          style="animation-delay: 0.5s; animation-duration: 3s;"
+        >
+          <button
+            class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+          >
+            <Icon name="tabler:world-latitude" class="w-4 h-4" />
+            <span class="text-sm font-medium">Latinoamérica</span>
+          </button>
+        </div>
+
+        <!-- Button 3: Europa -->
+        <div
+          class="absolute top-[40%] left-[48%] transform -translate-x-1/2 -translate-y-1/2 z-[3] animate-bounce"
+          style="animation-delay: 1s; animation-duration: 3s;"
+        >
+          <button
+            class="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+          >
+            <Icon name="tabler:world" class="w-4 h-4" />
+            <span class="text-sm font-medium">Europa</span>
+          </button>
+        </div>
+
+        <!-- Button 4: Asia -->
+        <div
+          class="absolute top-[15%] right-[12%] z-[3] animate-bounce"
+          style="animation-delay: 1.5s; animation-duration: 3s;"
+        >
+          <button
+            class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+          >
+            <Icon name="tabler:world-longitude" class="w-4 h-4" />
+            <span class="text-sm font-medium">Asia</span>
+          </button>
+        </div>
+
+        <!-- Miami Card con z-index corregido - REEMPLAZADO POR PUNTO INTERACTIVO -->
+        <div class="absolute top-[20%] left-[20%] z-[2]">
+          <div class="relative group cursor-pointer">
+            <!-- Tooltip que aparece al hover -->
+            <div
+              class="absolute bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none z-[3]"
+            >
+              <div
+                class="bg-slate-800/95 backdrop-blur-sm rounded-lg p-3 border border-blue-500/30 shadow-xl whitespace-nowrap"
+              >
+                <div class="flex items-center">
+                  <Icon name="tabler:building-skyscraper" class="w-4 h-4 text-blue-400 mr-2" />
+                  <div>
+                    <p class="text-white font-medium text-sm">Trakos HQ</p>
+                    <p class="text-blue-300 text-xs">Miami, EEUU</p>
+                  </div>
+                </div>
+                <!-- Flecha del tooltip -->
+                <div
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800/95"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Miami Card con z-index corregido - REEMPLAZADO POR PUNTO INTERACTIVO -->
+      <div class="absolute top-[20%] left-[20%] z-[15]">
+        <div class="relative group cursor-pointer">
+          <!-- Tooltip que aparece al hover -->
+          <div
+            class="absolute bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none z-[3]"
+          >
+            <div
+              class="bg-slate-800/95 backdrop-blur-sm rounded-lg p-3 border border-blue-500/30 shadow-xl whitespace-nowrap"
+            >
+              <div class="flex items-center">
+                <Icon name="tabler:building-skyscraper" class="w-4 h-4 text-blue-400 mr-2" />
+                <div>
+                  <p class="text-white font-medium text-sm">Trakos HQ</p>
+                  <p class="text-blue-300 text-xs">Miami, EEUU</p>
+                </div>
+              </div>
+              <!-- Flecha del tooltip -->
+              <div
+                class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800/95"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Miami HQ Point - ÚNICO CON PUNTO PULSANTE -->
+      <div class="absolute top-[20%] left-[20%] z-[3]">
+        <div class="relative group cursor-pointer">
+          <!-- Tooltip que aparece al hover -->
+          <div
+            class="absolute bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[4]"
+          >
+            <div
+              class="bg-slate-800/95 backdrop-blur-sm rounded-lg p-3 border border-blue-500/30 shadow-xl whitespace-nowrap"
+            >
+              <div class="flex items-center">
+                <Icon name="tabler:building-skyscraper" class="w-4 h-4 text-blue-400 mr-2" />
+                <div>
+                  <p class="text-white font-medium text-sm">Trakos HQ</p>
+                  <p class="text-blue-300 text-xs">Miami, EEUU</p>
+                </div>
+              </div>
+              <!-- Flecha del tooltip -->
+              <div
+                class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800/95"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Floating Global Reach Section - ELEMENTO FLOTANTE -->
+  <div class="relative -mt-40 mb-8 z-20">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="bg-slate-800 rounded-2xl p-6 md:p-8 lg:p-10 border border-blue-500/30 mb-16">
+        <!-- Industries Grid mejorado con responsividad optimizada -->
+        <div class="mb-8 md:mb-10">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6 max-w-6xl mx-auto"
+          >
+            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
+              <div class="relative mb-3">
+                <div
+                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                >
+                  <Icon
+                    name="tabler:building-factory"
+                    class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white"
+                  />
+                </div>
+              </div>
+              <span class="text-orange-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block"
+                >Construcción</span
+              >
+            </div>
+
+            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
+              <div class="relative mb-3">
+                <div
+                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                >
+                  <Icon name="tabler:hammer" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                </div>
+              </div>
+              <span class="text-yellow-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block">Minería</span
+              >
+            </div>
+
+            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
+              <div class="relative mb-3">
+                <div
+                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                >
+                  <Icon name="tabler:settings" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                </div>
+              </div>
+              <span class="text-purple-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block"
+                >Manufactura</span
+              >
+            </div>
+
+            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
+              <div class="relative mb-3">
+                <div
+                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                >
+                  <Icon
+                    name="tabler:shopping-cart"
+                    class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white"
+                  />
+                </div>
+              </div>
+              <span class="text-green-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block">Comercio</span
+              >
+            </div>
+
+            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
+              <div class="relative mb-3">
+                <div
+                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                >
+                  <Icon name="tabler:truck" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                </div>
+              </div>
+              <span class="text-blue-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block">Logística</span
+              >
+            </div>
+
+            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
+              <div class="relative mb-3">
+                <div
+                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                >
+                  <Icon name="tabler:plant" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                </div>
+              </div>
+              <span class="text-pink-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block"
+                >Agroindustria</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer mejorado con tipografía consistente -->
+        <div class="pt-6 md:pt-8 border-t border-blue-400/30">
+          <p class="text-base md:text-lg lg:text-xl text-white font-medium leading-relaxed w-full text-center">
+            Descubre cómo Trakos puede revolucionar la forma en que gestionas tus operaciones, brindándote el control y
+            la claridad que necesitas para el éxito global.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CEO Message Section - DENTRO DEL LAYOUT -->
+  <SectionWrapper class="pb-16 relative overflow-hidden">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div
+        class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-blue-200/50 dark:border-blue-500/30 shadow-2xl"
+      >
+        <!-- Header -->
+        <div class="text-center mb-8">
+          <h3
+            class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-600 mb-4"
+          >
+            Un Mensaje de Nuestro CEO
+          </h3>
+          <div class="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto"></div>
+        </div>
+
+        <!-- CEO Content -->
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <!-- CEO Message -->
+          <div class="flex-1 text-center lg:text-left">
+            <blockquote class="text-lg md:text-xl text-gray-700 dark:text-blue-200 leading-relaxed mb-6 italic">
+              "En el dinámico mundo de las operaciones, no hay espacio para la intuición. En proyectos donde cada
+              decisión es crítica, lo que no se mide, simplemente no puede mejorarse.
+              <br /><br />
+              Trakos nació de una profunda comprensión de esta necesidad: cerrar el vacío de información que frena la productividad.
+              Nuestra promesa es simple: entregarte reportes precisos y oportunos que reflejen la realidad de tus operaciones.
+              <br /><br />
+              Porque estamos convencidos de que solo con datos auténticos y en tiempo real se pueden tomar decisiones que
+              verdaderamente generen valor y aseguren el éxito."
+            </blockquote>
+
+            <!-- CEO Info -->
+            <div class="border-t border-blue-200/50 dark:border-blue-400/20 pt-6 text-right">
+              <p class="text-gray-900 dark:text-white font-bold text-xl mb-1">Wilfredo Pari, MBA</p>
+              <p class="text-blue-600 dark:text-blue-300 font-medium">CEO & Fundador de Trakos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-4 right-4 w-16 h-16 bg-blue-500/10 rounded-full blur-xl"></div>
+        <div class="absolute bottom-4 left-4 w-20 h-20 bg-cyan-500/10 rounded-full blur-xl"></div>
+      </div>
+    </div>
+  </SectionWrapper>
+
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 pointer-events-none"></div>
+
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 pointer-events-none"></div>
 </Layout>

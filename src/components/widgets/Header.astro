@@ -28,6 +28,7 @@ export interface Props {
   showToggleTheme?: boolean;
   showRssFeed?: boolean;
   position?: string;
+  bgImage?: string;
 }
 
 const {
@@ -37,6 +38,7 @@ const {
   isSticky = false,
   isDark = false,
   showToggleTheme = false,
+  bgImage,
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
@@ -45,20 +47,33 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 <header
   class:list={[
     { sticky: isSticky, fixed: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full transition-[opacity] ease-in-out py-3',
+    'top-0 z-[99999] flex-none mx-auto w-full transition-[opacity] ease-in-out py-3 relative overflow-hidden',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
 >
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-white/90 backdrop-blur-md shadow-lg rounded-full py-3 px-3 sm:px-5 md:px-8 flex items-center justify-between">
+  <!-- Fondo transparente para el header -->
+  <div
+    class="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat bg_cover"
+    aria-hidden="true"
+    style={bgImage ? `background-image: url('${bgImage}')` : undefined}
+  >
+    <!-- Gradiente muy sutil para el fondo general -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Contenedor principal con fondo blanco sólido -->
+    <div
+      class="bg-white backdrop-blur-md shadow-lg rounded-full py-3 px-3 sm:px-5 md:px-8 flex items-center justify-between border border-gray-200/50"
+    >
       <!-- Logo on the left -->
       <div class="flex-shrink-0 w-1/4">
         <a class="flex items-center" href={getHomePermalink()}>
           <Logo class="h-8 w-auto" />
         </a>
       </div>
-      
+
       <!-- Mobile menu button -->
       <div class="flex items-center md:hidden">
         <button
@@ -72,81 +87,80 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           </svg>
         </button>
       </div>
-      
+
       <!-- Navigation links in the center -->
       <nav class="hidden md:flex items-center justify-center flex-1 w-2/4">
         <div class="flex justify-center w-full">
           <ul class="inline-flex space-x-6 mx-auto">
-          {
-            links.map(({ text, href, links }) => (
-              <li class={links?.length ? 'relative group' : ''}>
-                {links?.length ? (
-                  <>
-                    <button
-                      type="button"
-                      class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center transition-colors duration-200"
+            {
+              links.map(({ text, href, links }) => (
+                <li class={links?.length ? 'relative group' : ''}>
+                  {links?.length ? (
+                    <>
+                      <button
+                        type="button"
+                        class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center transition-colors duration-200"
+                      >
+                        {text}
+                        <Icon name="tabler:chevron-down" width={16} height={16} class="ml-1" />
+                      </button>
+                      <ul class="hidden group-hover:block absolute left-0 mt-2 w-48 rounded-xl shadow-lg py-2 bg-white backdrop-blur-sm ring-1 ring-black/5 z-50">
+                        {links.map(({ text: text2, href: href2 }) => (
+                          <li>
+                            <a
+                              class:list={[
+                                'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200',
+                                { 'bg-blue-50 text-blue-600': href2 === currentPath },
+                              ]}
+                              href={href2}
+                            >
+                              {text2}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <a
+                      class:list={[
+                        'nav-link relative px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center transition-colors duration-200',
+                        { 'text-blue-600 nav-link-active': href === currentPath },
+                      ]}
+                      href={href}
                     >
                       {text}
-                      <Icon name="tabler:chevron-down" width={16} height={16} className="ml-1" />
-                    </button>
-                    <ul class="hidden group-hover:block absolute left-0 mt-2 w-48 rounded-xl shadow-lg py-2 bg-white/95 backdrop-blur-sm ring-1 ring-black/5 z-50">
-                      {links.map(({ text: text2, href: href2 }) => (
-                        <li>
-                          <a
-                            class:list={[
-                              'block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200',
-                              { 'bg-blue-50 text-blue-600': href2 === currentPath },
-                            ]}
-                            href={href2}
-                          >
-                            {text2}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                ) : (
-                  <a
-                    class:list={[
-                      'px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center transition-colors duration-200',
-                      { 'text-blue-600': href === currentPath },
-                    ]}
-                    href={href}
-                  >
-                    {text}
-                  </a>
-                )}
-              </li>
-            ))
-          }
-        </ul>
+                    </a>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </nav>
-      
+
       <!-- Right side buttons -->
       <div class="hidden md:flex items-center justify-end space-x-4 w-1/4">
         {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
-        
-        <a href="/login" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
-          Iniciar sesión
-        </a>
-        
-        {actions && actions.map(({ text, href, class: className, target }) => (
-          <a 
-            href={href} 
-            target={target}
-            class={`px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
-          >
-            <Fragment set:html={text} />
-          </a>
-        ))}
+
+        {
+          actions &&
+            actions.map(({ text, href, class: className, target }) => (
+              <a
+                href={href}
+                target={target}
+                class={`px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
+              >
+                <Fragment set:html={text} />
+              </a>
+            ))
+        }
       </div>
     </div>
   </div>
-  
+
   <!-- Mobile menu, show/hide based on menu state -->
-  <div class="md:hidden hidden mt-3" id="mobile-menu">
-    <div class="mx-4 bg-white/95 backdrop-blur-md shadow-lg rounded-2xl py-4 px-5 space-y-2">
+  <div class="md:hidden hidden mt-3 relative z-10" id="mobile-menu">
+    <div class="mx-4 bg-white backdrop-blur-md shadow-lg rounded-2xl py-4 px-5 space-y-2 border border-gray-200/50">
       {
         links.map(({ text, href, links }) => (
           <div class="mb-1">
@@ -157,7 +171,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   class="w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 flex justify-between items-center rounded-xl transition-colors duration-200 mobile-submenu-toggle"
                 >
                   {text}
-                  <Icon name="tabler:chevron-down" width={16} height={16} className="" />
+                  <Icon name="tabler:chevron-down" width={16} height={16} class="" />
                 </button>
                 <div class="hidden pl-4 mt-1 mb-2 space-y-2 mobile-submenu overflow-hidden transition-all duration-300">
                   {links.map(({ text: text2, href: href2 }) => (
@@ -189,53 +203,61 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       }
       <div class="pt-5 pb-2 border-t border-gray-200">
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-3">
-          <a href="/login" class="w-full sm:w-auto text-center px-5 py-2.5 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
-            Iniciar sesión
-          </a>
-          {actions && actions.map(({ text, href, class: className, target }) => (
-            <a 
-              href={href} 
-              target={target}
-              class={`w-full sm:w-auto text-center px-5 py-2.5 text-base font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
-            >
-              <Fragment set:html={text} />
-            </a>
-          ))}
+          {
+            actions &&
+              actions.map(({ text, href, class: className, target }) => (
+                <a
+                  href={href}
+                  target={target}
+                  class={`w-full sm:w-auto text-center px-5 py-2.5 text-base font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
+                >
+                  <Fragment set:html={text} />
+                </a>
+              ))
+          }
         </div>
       </div>
     </div>
   </div>
 </header>
 
+<style>
+  .bg_cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+
 <script is:inline>
   // Mobile menu toggle
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const toggleMenu = document.querySelector('button[aria-label="Toggle Menu"]');
     const mobileMenu = document.getElementById('mobile-menu');
-    
+
     if (toggleMenu && mobileMenu) {
-      toggleMenu.addEventListener('click', function() {
+      toggleMenu.addEventListener('click', function () {
         const expanded = toggleMenu.getAttribute('aria-expanded') === 'true';
         toggleMenu.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         mobileMenu.classList.toggle('hidden');
       });
     }
-    
+
     // Mobile submenu toggles
     const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
-    
-    submenuToggles.forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevenir comportamiento por defecto
-        
+
+    submenuToggles.forEach((toggle) => {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+
         const submenu = this.nextElementSibling;
         if (submenu && submenu.classList.contains('mobile-submenu')) {
           // Cerrar todos los otros submenús primero
-          document.querySelectorAll('.mobile-submenu:not(.hidden)').forEach(item => {
+          document.querySelectorAll('.mobile-submenu:not(.hidden)').forEach((item) => {
             if (item !== submenu) {
               item.classList.add('hidden');
               item.style.maxHeight = '0px';
-              
+
               // Restablecer el icono del botón correspondiente
               const parentButton = item.previousElementSibling;
               if (parentButton) {
@@ -246,11 +268,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               }
             }
           });
-          
+
           // Toggle el submenú actual
           const isHidden = submenu.classList.contains('hidden');
           submenu.classList.toggle('hidden');
-          
+
           // Animar altura para una transición más suave
           if (isHidden) {
             // Expandir
@@ -261,7 +283,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             // Contraer
             submenu.style.maxHeight = '0px';
           }
-          
+
           // Rotar el icono
           const icon = this.querySelector('svg');
           if (icon) {

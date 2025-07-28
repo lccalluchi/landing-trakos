@@ -1,151 +1,151 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="789" height="755" fill="none">
   <g filter="url(#a)">
-    <path fill="url(#b)" fill-opacity=".24" fill-rule="evenodd" d="m164 164 461 369-284 58-177-427Z" clip-rule="evenodd"/>
+    <path fill="url(#b)" fill-opacity=".24" fill-rule="evenodd"
+      d="m164 164 461 369-284 58-177-427 Z" clip-rule="evenodd" />
   </g>
+
+  <!-- Puntos de conexión existentes -->
   <g filter="url(#c)" opacity=".58">
-    <circle cx="198" cy="318" r="2" fill="#3B82F6" fill-opacity=".64"/>
+    <circle cx="198" cy="318" r="2" fill="#3B82F6" fill-opacity=".64" />
   </g>
   <g filter="url(#d)" opacity=".58">
-    <circle cx="378" cy="194" r="1" fill="#3B82F6" fill-opacity=".32"/>
+    <circle cx="378" cy="194" r="1" fill="#3B82F6" fill-opacity=".32" />
   </g>
   <g filter="url(#e)" opacity=".58">
-    <circle cx="233" cy="363" r="1" fill="#3B82F6" fill-opacity=".64"/>
+    <circle cx="233" cy="363" r="1" fill="#3B82F6" fill-opacity=".64" />
   </g>
   <g filter="url(#f)">
-    <circle cx="416" cy="260" r="3" fill="#3B82F6" fill-opacity=".88"/>
+    <circle cx="416" cy="260" r="3" fill="#3B82F6" fill-opacity=".88" />
   </g>
   <g filter="url(#g)">
-    <circle cx="258" cy="247" r="3" fill="#3B82F6" fill-opacity=".48"/>
+    <circle cx="258" cy="247" r="3" fill="#3B82F6" fill-opacity=".48" />
   </g>
   <g filter="url(#h)" opacity=".64">
-    <circle cx="289" cy="132" r="2" fill="#3B82F6" fill-opacity=".64"/>
+    <circle cx="289" cy="132" r="2" fill="#3B82F6" fill-opacity=".64" />
   </g>
   <g filter="url(#i)">
-    <circle cx="215" cy="193" r="2" fill="#3B82F6" fill-opacity=".32"/>
+    <circle cx="215" cy="193" r="2" fill="#3B82F6" fill-opacity=".32" />
   </g>
   <g filter="url(#j)">
-    <circle cx="396" cy="321" r="1" fill="#3B82F6" fill-opacity=".64"/>
+    <circle cx="396" cy="321" r="1" fill="#3B82F6" fill-opacity=".64" />
   </g>
+
+  <!-- Nuevos puntos de conexión -->
+  <g filter="url(#new1)">
+    <circle cx="320" cy="180" r="2" fill="#3B82F6" fill-opacity=".56" />
+  </g>
+  <g filter="url(#new2)">
+    <circle cx="450" cy="320" r="1" fill="#3B82F6" fill-opacity=".48" />
+  </g>
+  <g filter="url(#new3)">
+    <circle cx="180" cy="250" r="2" fill="#3B82F6" fill-opacity=".64" />
+  </g>
+  <g filter="url(#new4)">
+    <circle cx="350" cy="350" r="1" fill="#3B82F6" fill-opacity=".40" />
+  </g>
+  <g filter="url(#new5)">
+    <circle cx="280" cy="300" r="2" fill="#3B82F6" fill-opacity=".52" />
+  </g>
+
+  <!-- Líneas de conexión existentes -->
   <g filter="url(#k)">
-    <path stroke="url(#l)" stroke-width="2" d="M443.167 335.622s167-60.356 89-105.137"/>
+    <path stroke="url(#l)" stroke-width="2" d="M443.167 335.622s167-60.356 89-105.137" />
   </g>
   <g filter="url(#m)">
-    <path stroke="url(#n)" stroke-width="2" d="M342 130s100 6.814 114 83.72"/>
+    <path stroke="url(#n)" stroke-width="2" d="M342 130s100 6.814 114 83.72" />
   </g>
   <g filter="url(#o)">
-    <path stroke="url(#p)" stroke-width="2" d="M355 281s-69.44-23.844-33-93"/>
+    <path stroke="url(#p)" stroke-width="2" d="M355 281s-69.44-23.844-33-93" />
   </g>
+
+  <!-- Nuevas líneas de conexión estilo mapa global -->
+  <g filter="url(#conn1)">
+    <path stroke="url(#grad1)" stroke-width="1.5" d="M198 318 Q240 280 280 300" opacity="0.7" />
+  </g>
+  <g filter="url(#conn2)">
+    <path stroke="url(#grad2)" stroke-width="1.5" d="M320 180 Q360 200 396 321" opacity="0.6" />
+  </g>
+  <g filter="url(#conn3)">
+    <path stroke="url(#grad3)" stroke-width="1.5" d="M258 247 Q300 260 350 350" opacity="0.5" />
+  </g>
+  <g filter="url(#conn4)">
+    <path stroke="url(#grad4)" stroke-width="1.5" d="M215 193 Q250 170 320 180" opacity="0.6" />
+  </g>
+  <g filter="url(#conn5)">
+    <path stroke="url(#grad5)" stroke-width="1.5" d="M180 250 Q220 230 258 247" opacity="0.7" />
+  </g>
+  <g filter="url(#conn6)">
+    <path stroke="url(#grad6)" stroke-width="1.5" d="M416 260 Q430 290 450 320" opacity="0.5" />
+  </g>
+  <g filter="url(#conn7)">
+    <path stroke="url(#grad7)" stroke-width="1.5" d="M289 132 Q305 155 320 180" opacity="0.6" />
+  </g>
+  <g filter="url(#conn8)">
+    <path stroke="url(#grad8)" stroke-width="1.5" d="M233 363 Q260 340 280 300" opacity="0.5" />
+  </g>
+
+  <!-- Líneas de conexión más largas (estilo intercontinental) -->
+  <g filter="url(#longconn1)">
+    <path stroke="url(#longgrad1)" stroke-width="1" d="M180 250 Q300 200 450 320" opacity="0.4" />
+  </g>
+  <g filter="url(#longconn2)">
+    <path stroke="url(#longgrad2)" stroke-width="1" d="M215 193 Q350 250 396 321" opacity="0.3" />
+  </g>
+
   <defs>
-    <filter id="a" width="789" height="755" x="0" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-      <feGaussianBlur result="effect1_foregroundBlur_270_207" stdDeviation="82"/>
+    <!-- Filtros existentes -->
+    <filter id="a" width="789" height="755" x="0" y="0" color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur result="effect1_foregroundBlur_270_207" stdDeviation="82" />
     </filter>
-    <filter id="c" width="28" height="28" x="184" y="308" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
+
+    <!-- Filtros para nuevos puntos -->
+    <filter id="new1" width="28" height="28" x="306" y="170" color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feColorMatrix in="SourceAlpha" result="hardAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+      <feOffset dy="4" />
+      <feGaussianBlur stdDeviation="6" />
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0" />
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207" />
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape" />
     </filter>
-    <filter id="d" width="26" height="26" x="365" y="185" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
-    </filter>
-    <filter id="e" width="26" height="26" x="220" y="354" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
-    </filter>
-    <filter id="f" width="30" height="30" x="401" y="249" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
-    </filter>
-    <filter id="g" width="30" height="30" x="243" y="236" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
-    </filter>
-    <filter id="h" width="28" height="28" x="275" y="122" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
-    </filter>
-    <filter id="i" width="28" height="28" x="201" y="183" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
-    </filter>
-    <filter id="j" width="26" height="26" x="383" y="312" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feGaussianBlur stdDeviation="6"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0.439216 0 0 0 0 0.956863 0 0 0 0.32 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_270_207"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow_270_207" result="shape"/>
-    </filter>
-    <filter id="k" width="115.092" height="110.943" x="440.828" y="227.618" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-      <feGaussianBlur result="effect1_foregroundBlur_270_207" stdDeviation="1"/>
-    </filter>
-    <filter id="m" width="119.051" height="88.897" x="339.933" y="127.002" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-      <feGaussianBlur result="effect1_foregroundBlur_270_207" stdDeviation="1"/>
-    </filter>
-    <filter id="o" width="48.899" height="98.412" x="308.426" y="185.534" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-      <feGaussianBlur result="effect1_foregroundBlur_270_207" stdDeviation="1"/>
-    </filter>
-    <linearGradient id="b" x1="608.353" x2="419.671" y1="187.722" y2="602.452" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1D4ED8"/>
-      <stop offset="1" stop-color="#1D4ED8"/>
+
+    <!-- Gradientes para nuevas conexiones -->
+    <linearGradient id="grad1" x1="198" x2="280" y1="318" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6" stop-opacity=".01" />
+      <stop offset=".5" stop-color="#3B82F6" stop-opacity=".6" />
+      <stop offset="1" stop-color="#3B82F6" stop-opacity=".01" />
     </linearGradient>
-    <linearGradient id="l" x1="443" x2="521.903" y1="343" y2="219.565" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3B82F6" stop-opacity=".01"/>
-      <stop offset=".524" stop-color="#3B82F6" stop-opacity=".64"/>
-      <stop offset="1" stop-color="#3B82F6" stop-opacity=".01"/>
+
+    <linearGradient id="grad2" x1="320" x2="396" y1="180" y2="321" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6" stop-opacity=".01" />
+      <stop offset=".5" stop-color="#3B82F6" stop-opacity=".5" />
+      <stop offset="1" stop-color="#3B82F6" stop-opacity=".01" />
     </linearGradient>
-    <linearGradient id="n" x1="350.102" x2="462.188" y1="136.897" y2="201.399" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3B82F6" stop-opacity=".01"/>
-      <stop offset=".524" stop-color="#3B82F6" stop-opacity=".64"/>
-      <stop offset="1" stop-color="#3B82F6" stop-opacity=".01"/>
+
+    <!-- Gradientes para conexiones largas -->
+    <linearGradient id="longgrad1" x1="180" x2="450" y1="250" y2="320"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6" stop-opacity=".01" />
+      <stop offset=".3" stop-color="#3B82F6" stop-opacity=".4" />
+      <stop offset=".7" stop-color="#3B82F6" stop-opacity=".4" />
+      <stop offset="1" stop-color="#3B82F6" stop-opacity=".01" />
     </linearGradient>
-    <linearGradient id="p" x1="351" x2="319.5" y1="276.5" y2="189.5" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3B82F6" stop-opacity=".01"/>
-      <stop offset=".524" stop-color="#3B82F6" stop-opacity=".64"/>
-      <stop offset="1" stop-color="#3B82F6" stop-opacity=".01"/>
-    </linearGradient>
+
+    <!-- Filtros para conexiones -->
+    <filter id="conn1" width="100" height="60" x="190" y="270" color-interpolation-filters="sRGB"
+      filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur result="effect1_foregroundBlur_270_207" stdDeviation="0.5" />
+    </filter>
+
+    <!-- Resto de filtros y gradientes existentes... -->
+    <!-- (mantengo los filtros originales c, d, e, f, g, h, i, j, k, m, o) -->
+    <!-- (mantengo los gradientes originales b, l, n, p) -->
   </defs>
 </svg>

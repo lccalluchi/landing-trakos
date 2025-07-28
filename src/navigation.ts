@@ -1,125 +1,69 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
     {
-      text: 'Soluciones',
-      links: [
-        {
-          text: 'Gestión de proyectos',
-          href: getPermalink('/soluciones/gestion-proyectos'),
-        },
-        {
-          text: 'Equipos de operaciones',
-          href: getPermalink('/soluciones/equipos-operaciones'),
-        },
-        {
-          text: 'Equipos de marketing',
-          href: getPermalink('/soluciones/equipos-marketing'),
-        },
-        {
-          text: 'Equipos de producto',
-          href: getPermalink('/soluciones/equipos-producto'),
-        },
-      ],
+      text: 'Inicio',
+      href: getPermalink('/'),
     },
     {
-      text: 'Precios',
-      href: getPermalink('/pricing'),
+      text: 'Empresa',
+      href: getPermalink('/empresa'),
     },
     {
-      text: 'Clientes',
-      href: getPermalink('/customers'),
+      text: 'Producto',
+      href: getPermalink('/producto'),
     },
     {
-      text: 'Blog',
-      href: getBlogPermalink(),
-    },
-    {
-      text: 'Recursos',
-      links: [
-        {
-          text: 'Centro de recursos',
-          href: getPermalink('/recursos'),
-        },
-        {
-          text: 'Guías y tutoriales',
-          href: getPermalink('/recursos/guias'),
-        },
-        {
-          text: 'Webinars',
-          href: getPermalink('/recursos/webinars'),
-        },
-        {
-          text: 'Comunidad',
-          href: getPermalink('/comunidad'),
-        },
-      ],
+      text: 'Precio',
+      href: getPermalink('/precio'),
     },
   ],
-  actions: [{ text: 'Comenzar', href: getPermalink('/signup'), class: 'btn-primary' }],
+  actions: [
+    { text: 'Descargar Trakos', href: getPermalink('/descarga'), class: 'btn-primary', icon: 'tabler:download' },
+  ],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'Oficina Estratégica',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
-      ],
-    },
-    {
-      title: 'Platform',
-      links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
-    },
-    {
-      title: 'Support',
-      links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Trakos LLC', href: '#' },
+        { text: '701 Brickell Avenue, Suite 1500', href: '#' },
+        { text: 'Miami, FL 33131 – Estados Unidos', href: '#' },
+        { text: 'info@trakos.net', href: 'mailto:info@trakos.net' },
+        { text: '+1 305 555 5555', href: 'tel:+13055555555' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Términos de Servicio', href: '#terms' },
+    { text: 'Política de Privacidad', href: '#privacy' },
   ],
   socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
+    { ariaLabel: 'TikTok', icon: 'tabler:brand-tiktok', href: '#' },
+    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: '#' },
+    { ariaLabel: 'WeChat', icon: 'tabler:brand-wechat', href: '#' },
+    { ariaLabel: 'WhatsApp', icon: 'tabler:brand-whatsapp', href: 'https://wa.me/13055555555' },
+    { ariaLabel: 'Telegram', icon: 'tabler:brand-telegram', href: '#' },
   ],
   footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="/favicon-trakos.png" alt="Trakos logo" loading="lazy"></img>
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+    <div class="flex flex-col md:flex-row items-start justify-between w-full">
+      <div class="mb-4 md:mb-0">
+        <div class="text-sm text-muted">© 2024 trakos.net</div>
+      </div>
+      <div class="text-sm">
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center">
+            <img class="w-5 h-5 bg-cover mr-2 rounded-sm" src="/favicon-trakos.png" alt="Trakos logo" loading="lazy">
+            <span class="text-muted">Trakos LLC - Miami, FL</span>
+          </div>
+        </div>
+      </div>
+    </div>
   `,
 };

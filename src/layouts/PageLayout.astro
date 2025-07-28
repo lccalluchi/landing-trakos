@@ -1,9 +1,9 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import Header from '~/components/widgets/Header.astro';
 import Footer from '~/components/widgets/Footer.astro';
+import Header from '~/components/widgets/Header.astro';
+import Layout from '~/layouts/Layout.astro';
 
-import { headerData, footerData } from '~/navigation';
+import { footerData, headerData } from '~/navigation';
 
 import type { MetaData } from '~/types';
 
@@ -15,7 +15,10 @@ const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
-  <main>
+  <Header {...headerData} isSticky={true} showRssFeed showToggleTheme />
+  <main
+    class="bg-gradient-to-br from-blue-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+  >
     <slot />
   </main>
   <slot name="footer">

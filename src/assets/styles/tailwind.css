@@ -46,8 +46,8 @@
 #header.scroll.dark > div:first-child {
   @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20;
   box-shadow: none;
-} */ 
- 
+} */
+
 /* #header.scroll > div:last-child {
   @apply py-3;
 } */
@@ -94,7 +94,8 @@
 
 /* Floating animations for planet cards */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -103,7 +104,8 @@
 }
 
 @keyframes float-delayed {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-5px);
   }
   50% {
@@ -119,7 +121,7 @@
   animation: float-delayed 3s ease-in-out infinite 1.5s;
 }
 
-/* Subtle Planet Overlay Effect */
+/* Final Planet Design with 3D effects */
 .planet-container {
   position: relative;
   display: flex;
@@ -128,22 +130,18 @@
 }
 
 .planet-base {
-  z-index: 0; /* Capa base */
-  opacity: 0.7; /* Ligeramente transparente para integrarse */
+  z-index: 0;
+  opacity: 1;
+  border-radius: 50%;
+  filter: brightness(0.4) contrast(1.2);
 }
 
 .planet-glow {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(29, 78, 216, 0.2) 0%, transparent 70%);
-  filter: blur(60px);
-  z-index: 1;
-}
-
-.planet-overlay {
-  opacity: 0.2; /* Opacidad aumentada para asegurar visibilidad */
-  filter: invert(1); /* Mantiene el mapa en blanco */
+  border-radius: 50%;
+  box-shadow: inset 0 0 50px 15px rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
 
@@ -154,4 +152,3076 @@
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(12px);
   border-radius: 0.5rem;
+  z-index: 20;
 }
+
+/* Estilos para la tarjeta de Miami */
+.miami-card {
+  background: rgba(30, 41, 59, 0.9);
+  border: 2px solid rgba(59, 130, 246, 0.6);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 0.75rem;
+  z-index: 50;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+/* Contenedor para el efecto hover */
+.planet-hover-container:hover .connection-lines {
+  opacity: 1 !important;
+}
+
+.planet-hover-container:hover .miami-card {
+  background: rgba(30, 41, 59, 1);
+  border-color: rgba(59, 130, 246, 1);
+  box-shadow:
+    0 8px 35px rgba(59, 130, 246, 0.6),
+    0 0 30px rgba(59, 130, 246, 0.5);
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* Líneas de conexión */
+.connection-lines {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.planet-hover-container .connection-lines {
+  opacity: 0.8;
+}
+
+.connection-line {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 1)) drop-shadow(0 0 15px rgba(59, 130, 246, 0.8));
+  stroke-linecap: round;
+}
+
+.connection-line-secondary {
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.9)) drop-shadow(0 0 12px rgba(59, 130, 246, 0.7));
+  stroke-linecap: round;
+}
+
+/* Efecto hover mejorado para el planeta */
+.planet-hover-container:hover .planet-container {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.planet-hover-container:hover .planet-glow {
+  box-shadow:
+    inset 0 0 50px 15px rgba(0, 0, 0, 0.5),
+    0 0 30px 10px rgba(59, 130, 246, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Efecto de pulsación para la tarjeta de Miami */
+@keyframes miami-pulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(59, 130, 246, 0.4);
+  }
+}
+
+.miami-card {
+  animation: miami-pulse 4s ease-in-out infinite;
+}
+
+/* Todas las animaciones de conexiones eliminadas */
+@keyframes pulse-connections {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: brightness(0.8) drop-shadow(0 0 3px rgba(59, 130, 246, 0.4));
+  }
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.2) drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+  }
+}
+
+@keyframes connection-flow {
+  0% {
+    filter: brightness(0.8) hue-rotate(0deg) drop-shadow(0 0 3px rgba(59, 130, 246, 0.4));
+  }
+  25% {
+    filter: brightness(1.1) hue-rotate(10deg) drop-shadow(0 0 6px rgba(59, 130, 246, 0.6));
+  }
+  50% {
+    filter: brightness(1.3) hue-rotate(20deg) drop-shadow(0 0 10px rgba(59, 130, 246, 0.8));
+  }
+  75% {
+    filter: brightness(1.1) hue-rotate(10deg) drop-shadow(0 0 6px rgba(59, 130, 246, 0.6));
+  }
+  100% {
+    filter: brightness(0.8) hue-rotate(0deg) drop-shadow(0 0 3px rgba(59, 130, 246, 0.4));
+  }
+}
+
+@keyframes planet-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos para las conexiones del planeta */
+.planet-connections {
+  animation:
+    pulse-connections 4s ease-in-out infinite,
+    connection-flow 6s ease-in-out infinite,
+    planet-rotate 120s linear infinite;
+  transform-origin: center;
+}
+
+/* Efecto hover para intensificar las conexiones */
+.planet-container:hover .planet-connections {
+  animation-duration: 2s, 3s, 120s;
+  filter: brightness(1.4) drop-shadow(0 0 15px rgba(59, 130, 246, 1));
+}
+
+/* Efectos adicionales para los puntos de conexión */
+.planet-overlay {
+  opacity: 0.7;
+  filter: brightness(0.9) contrast(1.1);
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+/* Efecto de resplandor en las líneas de conexión */
+.planet-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 40%, rgba(59, 130, 246, 0.1) 70%, transparent 100%);
+  z-index: 1;
+  animation: connection-glow 8s ease-in-out infinite;
+}
+
+@keyframes line-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 1)) drop-shadow(0 0 15px rgba(59, 130, 246, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(59, 130, 246, 1)) drop-shadow(0 0 25px rgba(59, 130, 246, 1));
+  }
+}
+
+.planet-hover-container:hover .connection-line {
+  animation: line-pulse 1.5s ease-in-out infinite;
+}
+
+/* Mejora del brillo de las cards cuando las conexiones están activas */
+.planet-container:hover ~ .planet-card,
+.planet-container:hover + * .planet-card {
+  box-shadow: 0 4px 25px rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Estilo para el indicador activo del navbar */
+.nav-link-active {
+  position: relative;
+}
+
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 2px;
+  background-color: #3b82f6;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+/* Animación hover para enlaces no activos */
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 1px;
+  background-color: #3b82f6;
+  border-radius: 9999px;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:hover::after {
+  width: 40px;
+}
+
+.nav-link-active:;
