@@ -1,0 +1,193 @@
+---
+import SectionWrapper from '~/components/common/SectionWrapper.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import HeroText from '~/components/widgets/HeroText.astro'; // Cambio aquí
+import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Trakos - La Inteligencia Operativa que Transforma tu Gestión Diaria',
+  description:
+    'En el dinámico panorama global actual, la información oportuna y precisa es el activo más valioso. Trakos es tu socio estratégico en la gestión operativa diaria.',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section con HeroText (más simple y enfocado en texto) -->
+  <HeroText
+    tagline="EMPRESA"
+    title="Trakos: La Inteligencia Operativa que Transforma tu Gestión Diaria"
+    subtitle="En el dinámico panorama global actual, la información oportuna y precisa es el activo más valioso. Sin ella, cada decisión puede convertirse en un riesgo costoso para el tiempo, el capital y la eficiencia de tus operaciones."
+    callToAction={{
+      variant: 'primary',
+      text: 'Comenzar Ahora',
+      href: '/contact',
+      icon: 'tabler:rocket',
+    }}
+    callToAction2={{
+      text: 'Ver Demo',
+      href: '#operacion-optimizada',
+      icon: 'tabler:play',
+    }}
+  />
+
+  <!-- Destacado: Desde el campo -->
+  <Note>
+    **Desde el campo, en tiempo real, con datos accionables.** Por eso nace Trakos: una aplicación multiplataforma
+    potenciada por inteligencia artificial diseñada para ser tu compañero indispensable en la gestión operativa diaria.
+    Trakos te proporciona el pulso exacto del avance de cada tarea, el rendimiento de cada colaborador y la eficiencia
+    de cada equipo.
+  </Note>
+
+  <!-- Tu Operación Optimizada con Steps -->
+  <Steps
+    id="operacion-optimizada"
+    title="Tu Operación, Optimizada con Precisión Global"
+    subtitle="Transforma el caos de datos en información estratégica"
+    items={[
+      {
+        title: 'Reportes Automáticos de Desempeño y Productividad',
+        description:
+          'Cada jornada, Trakos transforma el caos de datos en reportes claros. No solo sabrás qué se hizo, sino quién lo hizo, cuándo, con qué nivel de rendimiento y a qué costo. Obtén una visibilidad sin precedentes para optimizar cada recurso.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Anticipación Inteligente para Decisiones Estratégicas',
+        description:
+          'Trakos va más allá de la simple información. Te permite anticipar desviaciones antes de que escalen a pérdidas significativas. Dirige tu equipo y tus proyectos con la certeza que solo los datos precisos pueden ofrecer, dejando atrás las suposiciones.',
+        icon: 'tabler:brain',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/hero-image.png', // ✅ Imagen existente
+      alt: 'Proceso de Optimización Trakos',
+    }}
+  />
+
+  <!-- Características Principales con Features3 -->
+  <Features3
+    id="caracteristicas"
+    title="Características Principales"
+    subtitle="Funcionalidades que definen a Trakos como tu herramienta indispensable"
+    columns={3}
+    items={[
+      {
+        title: 'Visibilidad Total',
+        description: 'Control completo de cada tarea y trabajador',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Datos en Tiempo Real',
+        description: 'Información actualizada desde el campo',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Análisis Predictivo',
+        description: 'Anticipa problemas antes de que ocurran',
+        icon: 'tabler:crystal-ball',
+      },
+      {
+        title: 'Optimización de Recursos',
+        description: 'Maximiza la eficiencia operativa',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Reportes Profesionales',
+        description: 'Documentación lista para gerencia y auditorías',
+        icon: 'tabler:file-report',
+      },
+      {
+        title: 'Inteligencia Artificial',
+        description: 'Análisis automático y recomendaciones estratégicas',
+        icon: 'tabler:robot',
+      },
+    ]}
+  />
+
+  <!-- Propuesta de Valor con Steps2 -->
+  <Steps2
+    id="propuesta-valor"
+    title="Propuesta de Valor"
+    subtitle="Trakos no es solo una herramienta de registro, es tu socio estratégico que transforma la gestión operativa diaria mediante:"
+    items={[
+      {
+        title: 'Información Oportuna y Precisa',
+        description: 'El activo más valioso en el panorama global actual',
+        icon: 'tabler:info-circle',
+      },
+      {
+        title: 'Visión Clara y en Tiempo Real',
+        description: 'De lo que realmente sucede en cada operación',
+        icon: 'tabler:eye-check',
+      },
+      {
+        title: 'Datos Accionables',
+        description: 'Para tomar decisiones que generen valor real',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Pulso Exacto',
+        description: 'Del avance de tareas, rendimiento de colaboradores y eficiencia de equipos',
+        icon: 'tabler:heartbeat',
+      },
+    ]}
+  />
+
+  <!-- Testimonial del CEO usando ModernTestimonials -->
+  <!-- CEO Message Section - DENTRO DEL LAYOUT -->
+  <SectionWrapper class="pb-8 sm:pb-12 md:pb-16 relative overflow-hidden">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div
+        class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 border border-blue-200/50 dark:border-blue-500/30 shadow-2xl"
+      >
+        <!-- Header -->
+        <div class="text-center mb-6 sm:mb-8">
+          <h3
+            class="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-600 mb-3 sm:mb-4"
+          >
+            Un Mensaje de Nuestro CEO
+          </h3>
+          <div class="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto"></div>
+        </div>
+
+        <!-- CEO Content -->
+        <div class="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
+          <!-- CEO Message -->
+          <div class="flex-1 text-center lg:text-left">
+            <blockquote
+              class="text-base sm:text-lg md:text-xl text-gray-700 dark:text-blue-200 leading-relaxed mb-4 sm:mb-6 italic px-2 sm:px-0"
+            >
+              "En el dinámico mundo de las operaciones, no hay espacio para la intuición. En proyectos donde cada
+              decisión es crítica, lo que no se mide, simplemente no puede mejorarse.
+              <br /><br />
+              Trakos nació de una profunda comprensión de esta necesidad: cerrar el vacío de información que frena la productividad.
+              Nuestra promesa es simple: entregarte reportes precisos y oportunos que reflejen la realidad de tus operaciones.
+              <br /><br />
+              Porque estamos convencidos de que solo con datos auténticos y en tiempo real se pueden tomar decisiones que
+              verdaderamente generen valor y aseguren el éxito."
+            </blockquote>
+
+            <!-- CEO Info -->
+            <div class="border-t border-blue-200/50 dark:border-blue-400/20 pt-4 sm:pt-6 text-center sm:text-right">
+              <p class="text-gray-900 dark:text-white font-bold text-lg sm:text-xl mb-1">Wilfredo Pari, MBA</p>
+              <p class="text-blue-600 dark:text-blue-300 font-medium text-sm sm:text-base">CEO & Fundador de Trakos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div
+          class="absolute top-2 right-2 sm:top-4 sm:right-4 w-12 h-12 sm:w-16 sm:h-16 bg-blue-500/10 rounded-full blur-xl"
+        >
+        </div>
+        <div
+          class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-16 h-16 sm:w-20 sm:h-20 bg-cyan-500/10 rounded-full blur-xl"
+        >
+        </div>
+      </div>
+    </div>
+  </SectionWrapper>
+</Layout>

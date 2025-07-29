@@ -1,4 +1,4 @@
-import { getPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
@@ -8,7 +8,7 @@ export const headerData = {
     },
     {
       text: 'Empresa',
-      href: getPermalink('/empresa'),
+      href: getPermalink('/company'),
     },
     {
       text: 'Producto',

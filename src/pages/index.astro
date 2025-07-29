@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 import headerImage from '../assets/images/header-5.jpg';
 import planetImage from '../assets/images/planet.png';
 import SectionWrapper from '../components/common/SectionWrapper.astro';
@@ -54,7 +55,7 @@ const metadata = {
 
   <!-- Global Collaboration Section ***************** -->
   <SectionWrapper
-    class="pt-12 pb-32 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden"
+    class="pt-12 pb-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden"
   >
     <!-- Header con espaciado mejorado -->
     <div class="text-center max-w-3xl mx-auto mb-6">
@@ -70,33 +71,37 @@ const metadata = {
 
     <!-- Planet Container -->
     <div
-      class="relative flex items-center justify-center min-h-[500px] planet-hover-container mb-8 z-[1] max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"
+      class="relative flex items-center justify-center min-h-[300px] sm:min-h-[400px] md:min-h-[500px] planet-hover-container mb-2 z-[1] max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"
     >
       <!-- Planet with all layers -->
-      <div class="relative z-[2] planet-container" style="width: 450px; height: 450px;">
+      <div class="relative z-[2] planet-container w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px]">
         <img src={planetImage.src} alt="Planet Base" class="absolute inset-0 w-full h-full object-cover planet-base" />
         <div class="planet-glow"></div>
-        <!-- Floating Buttons around the planet - BASADO EN DISTRIBUTION.MD -->
+        <!-- Floating Buttons around the planet - OPTIMIZADO CON PADDING DINÁMICO -->
         <!-- Button 1: Miami -->
-        <div class="absolute top-16 left-4 z-[3] animate-bounce" style="animation-delay: 0s; animation-duration: 3s;">
+        <div
+          class="absolute top-8 left-2 sm:top-12 sm:left-3 md:top-16 md:left-4 z-[3] animate-bounce"
+          style="animation-delay: 0s; animation-duration: 3s;"
+        >
           <button
-            class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1 sm:gap-2 min-w-fit"
           >
-            <Icon name="tabler:building-skyscraper" class="w-4 h-4" />
-            <span class="text-sm font-medium">Miami</span>
+            <Icon name="tabler:building-skyscraper" class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span class="text-xs sm:text-sm font-medium whitespace-nowrap">Miami</span>
           </button>
         </div>
 
         <!-- Button 2: Latinoamérica -->
         <div
-          class="absolute bottom-[15%] left-[25%] z-[3] animate-bounce"
+          class="absolute bottom-[12%] left-[20%] sm:bottom-[15%] sm:left-[25%] z-[3] animate-bounce"
           style="animation-delay: 0.5s; animation-duration: 3s;"
         >
           <button
-            class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1 sm:gap-2 min-w-fit"
           >
-            <Icon name="tabler:world-latitude" class="w-4 h-4" />
-            <span class="text-sm font-medium">Latinoamérica</span>
+            <Icon name="tabler:world-latitude" class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span class="text-xs sm:text-sm font-medium whitespace-nowrap hidden sm:inline">Latinoamérica</span>
+            <span class="text-xs font-medium whitespace-nowrap inline sm:hidden">LATAM</span>
           </button>
         </div>
 
@@ -106,10 +111,10 @@ const metadata = {
           style="animation-delay: 1s; animation-duration: 3s;"
         >
           <button
-            class="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            class="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1 sm:gap-2 min-w-fit"
           >
-            <Icon name="tabler:world" class="w-4 h-4" />
-            <span class="text-sm font-medium">Europa</span>
+            <Icon name="tabler:world" class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span class="text-xs sm:text-sm font-medium whitespace-nowrap">Europa</span>
           </button>
         </div>
 
@@ -119,10 +124,10 @@ const metadata = {
           style="animation-delay: 1.5s; animation-duration: 3s;"
         >
           <button
-            class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            class="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-1 sm:gap-2 min-w-fit"
           >
-            <Icon name="tabler:world-longitude" class="w-4 h-4" />
-            <span class="text-sm font-medium">Asia</span>
+            <Icon name="tabler:world-longitude" class="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+            <span class="text-xs sm:text-sm font-medium whitespace-nowrap">Asia</span>
           </button>
         </div>
 
@@ -210,91 +215,108 @@ const metadata = {
   </SectionWrapper>
 
   <!-- Floating Global Reach Section - ELEMENTO FLOTANTE -->
-  <div class="relative -mt-40 mb-8 z-20">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-      <div class="bg-slate-800 rounded-2xl p-6 md:p-8 lg:p-10 border border-blue-500/30 mb-16">
+  <div class="relative -mt-12 sm:-mt-16 md:-mt-20 lg:-mt-24 xl:-mt-28 mb-4 sm:mb-6 md:mb-8 z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div
+        class="bg-slate-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 border border-blue-500/30 mb-8 sm:mb-12 md:mb-16"
+      >
         <!-- Industries Grid mejorado con responsividad optimizada -->
-        <div class="mb-8 md:mb-10">
+        <div class="mb-6 sm:mb-8 md:mb-10">
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 lg:gap-6 max-w-6xl mx-auto"
+            class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6 max-w-6xl mx-auto"
           >
-            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
-              <div class="relative mb-3">
+            <div
+              class="bg-slate-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full"
+            >
+              <div class="relative mb-2 sm:mb-3">
                 <div
-                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                  class="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto shadow-lg"
                 >
                   <Icon
                     name="tabler:building-factory"
-                    class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white"
+                    class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white"
                   />
                 </div>
               </div>
-              <span class="text-orange-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block"
+              <span class="text-orange-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block leading-tight"
                 >Construcción</span
               >
             </div>
 
-            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
-              <div class="relative mb-3">
+            <div
+              class="bg-slate-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full"
+            >
+              <div class="relative mb-2 sm:mb-3">
                 <div
-                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                  class="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto shadow-lg"
                 >
-                  <Icon name="tabler:hammer" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                  <Icon name="tabler:hammer" class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
               </div>
-              <span class="text-yellow-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block">Minería</span
+              <span class="text-yellow-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block leading-tight"
+                >Minería</span
               >
             </div>
 
-            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
-              <div class="relative mb-3">
+            <div
+              class="bg-slate-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full"
+            >
+              <div class="relative mb-2 sm:mb-3">
                 <div
-                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                  class="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto shadow-lg"
                 >
-                  <Icon name="tabler:settings" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                  <Icon name="tabler:settings" class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
               </div>
-              <span class="text-purple-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block"
+              <span class="text-purple-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block leading-tight"
                 >Manufactura</span
               >
             </div>
 
-            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
-              <div class="relative mb-3">
+            <div
+              class="bg-slate-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full"
+            >
+              <div class="relative mb-2 sm:mb-3">
                 <div
-                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                  class="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto shadow-lg"
                 >
                   <Icon
                     name="tabler:shopping-cart"
-                    class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white"
+                    class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white"
                   />
                 </div>
               </div>
-              <span class="text-green-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block">Comercio</span
+              <span class="text-green-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block leading-tight"
+                >Comercio</span
               >
             </div>
 
-            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
-              <div class="relative mb-3">
+            <div
+              class="bg-slate-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full"
+            >
+              <div class="relative mb-2 sm:mb-3">
                 <div
-                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                  class="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto shadow-lg"
                 >
-                  <Icon name="tabler:truck" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                  <Icon name="tabler:truck" class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
               </div>
-              <span class="text-blue-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block">Logística</span
+              <span class="text-blue-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block leading-tight"
+                >Logística</span
               >
             </div>
 
-            <div class="bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full">
-              <div class="relative mb-3">
+            <div
+              class="bg-slate-700 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 text-center border border-slate-600/30 w-full"
+            >
+              <div class="relative mb-2 sm:mb-3">
                 <div
-                  class="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-xl flex items-center justify-center mx-auto shadow-lg"
+                  class="relative w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto shadow-lg"
                 >
-                  <Icon name="tabler:plant" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
+                  <Icon name="tabler:plant" class="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
               </div>
-              <span class="text-pink-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block"
+              <span class="text-pink-400 font-semibold text-xs sm:text-sm md:text-base lg:text-lg block leading-tight"
                 >Agroindustria</span
               >
             </div>
@@ -302,8 +324,10 @@ const metadata = {
         </div>
 
         <!-- Footer mejorado con tipografía consistente -->
-        <div class="pt-6 md:pt-8 border-t border-blue-400/30">
-          <p class="text-base md:text-lg lg:text-xl text-white font-medium leading-relaxed w-full text-center">
+        <div class="pt-4 sm:pt-6 md:pt-8 border-t border-blue-400/30">
+          <p
+            class="text-sm sm:text-base md:text-lg lg:text-xl text-white font-medium leading-relaxed w-full text-center px-2 sm:px-0"
+          >
             Descubre cómo Trakos puede revolucionar la forma en que gestionas tus operaciones, brindándote el control y
             la claridad que necesitas para el éxito global.
           </p>
@@ -312,51 +336,24 @@ const metadata = {
     </div>
   </div>
 
-  <!-- CEO Message Section - DENTRO DEL LAYOUT -->
-  <SectionWrapper class="pb-16 relative overflow-hidden">
-    <div class="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-      <div
-        class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-blue-200/50 dark:border-blue-500/30 shadow-2xl"
-      >
-        <!-- Header -->
-        <div class="text-center mb-8">
-          <h3
-            class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-600 mb-4"
-          >
-            Un Mensaje de Nuestro CEO
-          </h3>
-          <div class="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto"></div>
-        </div>
-
-        <!-- CEO Content -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          <!-- CEO Message -->
-          <div class="flex-1 text-center lg:text-left">
-            <blockquote class="text-lg md:text-xl text-gray-700 dark:text-blue-200 leading-relaxed mb-6 italic">
-              "En el dinámico mundo de las operaciones, no hay espacio para la intuición. En proyectos donde cada
-              decisión es crítica, lo que no se mide, simplemente no puede mejorarse.
-              <br /><br />
-              Trakos nació de una profunda comprensión de esta necesidad: cerrar el vacío de información que frena la productividad.
-              Nuestra promesa es simple: entregarte reportes precisos y oportunos que reflejen la realidad de tus operaciones.
-              <br /><br />
-              Porque estamos convencidos de que solo con datos auténticos y en tiempo real se pueden tomar decisiones que
-              verdaderamente generen valor y aseguren el éxito."
-            </blockquote>
-
-            <!-- CEO Info -->
-            <div class="border-t border-blue-200/50 dark:border-blue-400/20 pt-6 text-right">
-              <p class="text-gray-900 dark:text-white font-bold text-xl mb-1">Wilfredo Pari, MBA</p>
-              <p class="text-blue-600 dark:text-blue-300 font-medium">CEO & Fundador de Trakos</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Decorative Elements -->
-        <div class="absolute top-4 right-4 w-16 h-16 bg-blue-500/10 rounded-full blur-xl"></div>
-        <div class="absolute bottom-4 left-4 w-20 h-20 bg-cyan-500/10 rounded-full blur-xl"></div>
-      </div>
-    </div>
-  </SectionWrapper>
+  <!-- Call to Action final -->
+  <CallToAction
+    title="Transforma la Gestión Operativa de tu Empresa"
+    subtitle="Con Trakos, transforma la gestión operativa de tu empresa con inteligencia artificial y datos precisos en tiempo real."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Comenzar Transformación',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+      {
+        text: 'Solicitar Demo',
+        href: '/contact',
+        icon: 'tabler:calendar',
+      },
+    ]}
+  />
 
   <!-- Background Effects -->
   <div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 pointer-events-none"></div>
