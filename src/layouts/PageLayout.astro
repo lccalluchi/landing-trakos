@@ -16,9 +16,7 @@ const { metadata } = Astro.props;
 
 <Layout metadata={metadata}>
   <Header {...headerData} isSticky={true} showRssFeed showToggleTheme />
-  <main
-    class="bg-white dark:bg-slate-900 min-h-screen w-full"
-  >
+  <main class="bg-white dark:bg-slate-900 min-h-screen w-full pt-0">
     <slot />
   </main>
   <slot name="footer">

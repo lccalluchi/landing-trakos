@@ -4,6 +4,7 @@ import ItemGrid from '~/components/ui/ItemGrid.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Image from '~/components/common/Image.astro';
 import type { Features as Props } from '~/types';
+import ItemGrid2 from '../ui/ItemGrid2.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -54,7 +55,7 @@ const {
     }
   </div>
 
-  <ItemGrid
+  <ItemGrid2
     items={items}
     columns={columns}
     defaultIcon={defaultIcon}
@@ -63,7 +64,7 @@ const {
       panel: 'max-w-full sm:max-w-md',
       title: 'text-lg font-semibold',
       description: 'mt-0.5',
-      icon: 'flex-shrink-0 mt-1 text-primary w-6 h-6',
+      icon: '',
       ...((classes?.items as object) ?? {}),
     }}
   />

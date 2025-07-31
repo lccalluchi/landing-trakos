@@ -46,8 +46,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <header
   class:list={[
-    { sticky: isSticky, fixed: !isSticky, dark: isDark },
-    'top-0 z-[99999] flex-none mx-auto w-full transition-[opacity] ease-in-out py-3 relative overflow-hidden',
+    { dark: isDark },
+    'top-0 z-[99999] flex-none mx-auto w-full transition-[opacity] ease-in-out py-3 fixed overflow-hidden',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
@@ -65,7 +65,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Contenedor principal con fondo blanco sólido -->
     <div
-      class="bg-white backdrop-blur-md shadow-lg rounded-full py-3 px-3 sm:px-5 md:px-8 flex items-center justify-between border border-gray-200/50"
+      class="bg-white backdrop-blur-md shadow-md rounded-2xl py-3 px-3 sm:px-5 md:px-8 flex items-center justify-between border border-gray-200"
     >
       <!-- Logo on the left -->
       <div class="flex-shrink-0 w-1/4">
@@ -148,7 +148,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
               <a
                 href={href}
                 target={target}
-                class={`px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
+                class={`px-5 py-2 text-sm font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
               >
                 <Fragment set:html={text} />
               </a>
@@ -160,7 +160,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
   <!-- Mobile menu, show/hide based on menu state -->
   <div class="md:hidden hidden mt-3 relative z-10" id="mobile-menu">
-    <div class="mx-4 bg-white backdrop-blur-md shadow-lg rounded-2xl py-4 px-5 space-y-2 border border-gray-200/50">
+    <div class="mx-4 bg-white backdrop-blur-md shadow-md rounded-2xl py-4 px-5 space-y-2 border border-gray-200">
       {
         links.map(({ text, href, links }) => (
           <div class="mb-1">
@@ -209,7 +209,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 <a
                   href={href}
                   target={target}
-                  class={`w-full sm:w-auto text-center px-5 py-2.5 text-base font-medium text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
+                  class={`w-full sm:w-auto text-center px-5 py-2.5 text-base font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors duration-200 shadow-sm ${className ?? ''}`}
                 >
                   <Fragment set:html={text} />
                 </a>

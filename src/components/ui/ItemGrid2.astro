@@ -8,12 +8,28 @@ const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 
 const {
   container: containerClass = '',
-  // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
   panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
-  icon: defaultIconClass = 'text-primary',
+  icon: defaultIconClass = '',
+  action: actionClass = '',
 } = classes;
+
+// Esquemas de colores solo para iconos
+const iconColorSchemes = [
+  {
+    iconColor: 'text-blue-600',
+  },
+  {
+    iconColor: 'text-emerald-600',
+  },
+  {
+    iconColor: 'text-purple-600',
+  },
+  {
+    iconColor: 'text-orange-600',
+  },
+];
 ---
 
 {
@@ -32,28 +48,68 @@ const {
         containerClass
       )}
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
-        <div
-          class={twMerge(
-            'relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
-            panelClass,
-            itemClasses?.panel
-          )}
-        >
-          {(icon || defaultIcon) && (
-            <Icon name={icon || defaultIcon} class={twMerge('mb-2 w-10 h-10', defaultIconClass, itemClasses?.icon)} />
-          )}
-          <div class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</div>
-          {description && (
-            <p class={twMerge('text-muted mt-2', descriptionClass, itemClasses?.description)} set:html={description} />
-          )}
-          {callToAction && (
-            <div class="mt-2">
-              <Button {...callToAction} />
+      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }, index) => {
+        const iconScheme = iconColorSchemes[index % iconColorSchemes.length];
+
+        return (
+          <div
+            class={twMerge(
+              'relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+              panelClass,
+              itemClasses?.panel
+            )}
+          >
+            {/* Contenedor del icono */}
+            <div class="flex items-start mb-4">
+              {(icon || defaultIcon) && (
+                <div class="relative flex-shrink-0">
+                  {/* Icono principal con fondo blanco */}
+                  <div class="relative w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 border border-gray-200">
+                    <Icon
+                      name={icon || defaultIcon}
+                      class={twMerge(`w-6 h-6 ${iconScheme.iconColor}`, defaultIconClass, itemClasses?.icon)}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-      ))}
+
+            {/* Contenido */}
+            <div class="relative z-10">
+              {title && (
+                <div class="mb-3">
+                  <h3
+                    class={twMerge('text-xl font-bold text-gray-900 dark:text-white', titleClass, itemClasses?.title)}
+                  >
+                    {title}
+                  </h3>
+                </div>
+              )}
+
+              {description && (
+                <p
+                  class={twMerge(
+                    'text-gray-600 dark:text-gray-300 leading-relaxed text-sm',
+                    descriptionClass,
+                    itemClasses?.description
+                  )}
+                  set:html={description}
+                />
+              )}
+
+              {callToAction && (
+                <div class={twMerge(`${title || description ? 'mt-4' : ''}`, actionClass, itemClasses?.actionClass)}>
+                  <Button
+                    variant="link"
+                    {...callToAction}
+                    class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-300"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </div>
   )
 }

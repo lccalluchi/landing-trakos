@@ -1,8 +1,8 @@
 ---
-import type { ItemGrid as Props } from '~/types';
-import { twMerge } from 'tailwind-merge';
-import Button from './Button.astro';
 import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+import type { ItemGrid as Props } from '~/types';
+import Button from './Button.astro';
 
 const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 
@@ -11,16 +11,36 @@ const {
   panel: panelClass = '',
   title: titleClass = '',
   description: descriptionClass = '',
-  icon: defaultIconClass = 'text-primary',
+  icon: defaultIconClass = '',
   action: actionClass = '',
 } = classes;
+
+// Esquemas de colores solo para iconos
+const iconColorSchemes = [
+  {
+    icon: 'from-blue-500 to-blue-600',
+    iconGlow: 'from-blue-500 to-blue-600',
+  },
+  {
+    icon: 'from-emerald-500 to-emerald-600',
+    iconGlow: 'from-emerald-500 to-emerald-600',
+  },
+  {
+    icon: 'from-purple-500 to-purple-600',
+    iconGlow: 'from-purple-500 to-purple-600',
+  },
+  {
+    icon: 'from-orange-500 to-orange-600',
+    iconGlow: 'from-orange-500 to-orange-600',
+  },
+];
 ---
 
 {
   items && items.length > 0 && (
     <div
       class={twMerge(
-        `grid mx-auto gap-8 md:gap-y-12 ${
+        `grid mx-auto gap-6 md:gap-8 ${
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
@@ -32,34 +52,76 @@ const {
         containerClass
       )}
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
-        <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-          <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
-            <div class="flex justify-center">
-              {(icon || defaultIcon) && (
-                <Icon
-                  name={icon || defaultIcon}
-                  class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
-                />
+      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }, index) => {
+        const iconScheme = iconColorSchemes[index % iconColorSchemes.length];
+
+        return (
+          <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <div
+              class={twMerge(
+                'relative overflow-hidden bg-white dark:bg-slate-800 rounded-2xl p-6 border border-gray-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group',
+                panelClass,
+                itemClasses?.panel
               )}
-            </div>
-            <div class="mt-0.5">
-              {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
-              {description && (
-                <p
-                  class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
-                  set:html={description}
-                />
-              )}
-              {callToAction && (
-                <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
-                  <Button variant="link" {...callToAction} />
-                </div>
-              )}
+            >
+              {/* Contenedor del icono */}
+              <div class="flex items-start mb-4">
+                {(icon || defaultIcon) && (
+                  <div class="relative flex-shrink-0">
+                    {/* Efecto de resplandor de fondo */}
+                    <div
+                      class={`absolute inset-0 bg-gradient-to-br ${iconScheme.iconGlow} rounded-2xl blur-sm opacity-20`}
+                    />
+                    {/* Icono principal con gradiente */}
+                    <div
+                      class={`relative w-12 h-12 bg-gradient-to-br ${iconScheme.icon} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <Icon
+                        name={icon || defaultIcon}
+                        class={twMerge('w-6 h-6 text-white', defaultIconClass, itemClasses?.icon)}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Contenido */}
+              <div class="relative z-10">
+                {title && (
+                  <div class="mb-3">
+                    <h3
+                      class={twMerge('text-xl font-bold text-gray-900 dark:text-white', titleClass, itemClasses?.title)}
+                    >
+                      {title}
+                    </h3>
+                  </div>
+                )}
+
+                {description && (
+                  <p
+                    class={twMerge(
+                      'text-gray-600 dark:text-gray-300 leading-relaxed text-sm',
+                      descriptionClass,
+                      itemClasses?.description
+                    )}
+                    set:html={description}
+                  />
+                )}
+
+                {callToAction && (
+                  <div class={twMerge(`${title || description ? 'mt-4' : ''}`, actionClass, itemClasses?.actionClass)}>
+                    <Button
+                      variant="link"
+                      {...callToAction}
+                      class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors duration-300"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   )
 }

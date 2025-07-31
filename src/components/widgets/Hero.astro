@@ -17,10 +17,11 @@ const {
   bgImage,
   bg = await Astro.slots.render('bg'),
   headerData,
+  containerClass,
 } = Astro.props;
 ---
 
-<section class="relative not-prose overflow-hidden header-hero min-h-screen" {...id ? { id } : {}}>
+<section class=`relative not-prose overflow-hidden header-hero min-h-screen ${containerClass}` {...id ? { id } : {}}>
   <div
     class="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat bg_cover"
     aria-hidden="true"
@@ -79,7 +80,10 @@ const {
                 {Array.isArray(actions) ? (
                   actions.map((action) => (
                     <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:w-auto sm:mb-0 shadow-lg text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4" />
+                      <Button
+                        {...(action || {})}
+                        class="w-full sm:w-auto sm:mb-0 shadow-lg text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
+                      />
                     </div>
                   ))
                 ) : (

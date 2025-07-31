@@ -18,36 +18,38 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
+  <div>
+    <Hero
+      containerClass="pt-20 sm:pt-24 md:pt-28 lg:pt-32"
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Descargar Trakos Ahora',
+          href: '#download',
+          icon: 'tabler:download',
+        },
+        {
+          text: 'Escríbenos por Chat',
+          href: '#contact',
+          variant: 'secondary',
+        },
+      ]}
+      bgImage={headerImage.src}
+    >
+      <Fragment slot="tagline"> INTELIGENCIA ARTIFICIAL PARA TUS OPERACIONES </Fragment>
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Descargar Trakos Ahora',
-        href: '#download',
-        icon: 'tabler:download',
-      },
-      {
-        text: 'Escríbenos por Chat',
-        href: '#contact',
-        variant: 'secondary',
-      },
-    ]}
-    bgImage={headerImage.src}
-  >
-    <Fragment slot="tagline"> INTELIGENCIA ARTIFICIAL PARA TUS OPERACIONES </Fragment>
+      <Fragment slot="title">
+        Donde tus <span class="text-primary dark:text-primary">equipos y la IA</span> coordinan el trabajo juntos
+      </Fragment>
 
-    <Fragment slot="title">
-      Donde tus <span class="text-primary dark:text-primary">equipos y la IA</span> coordinan el trabajo juntos
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="text-xl">
-        En Trakos, comprendemos que los líderes de proyectos, gerentes y equipos en campo necesitan un socio estratégico
-        que les ofrezca una visión clara y en tiempo real de lo que realmente sucede en cada operación.
-      </span>
-    </Fragment>
-  </Hero>
+      <Fragment slot="subtitle">
+        <span class="text-xl">
+          En Trakos, comprendemos que los líderes de proyectos, gerentes y equipos en campo necesitan un socio
+          estratégico que les ofrezca una visión clara y en tiempo real de lo que realmente sucede en cada operación.
+        </span>
+      </Fragment>
+    </Hero>
+  </div>
 
   <!-- App Showcase Widget ************ -->
 
@@ -157,6 +159,59 @@ const metadata = {
             </div>
           </div>
         </div>
+
+        <!-- Miami Card con z-index corregido - REEMPLAZADO POR PUNTO INTERACTIVO -->
+        <div class="absolute top-[20%] left-[20%] z-[15]">
+          <div class="relative group cursor-pointer">
+            <!-- Tooltip que aparece al hover -->
+            <div
+              class="absolute bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 pointer-events-none z-[3]"
+            >
+              <div
+                class="bg-slate-800/95 backdrop-blur-sm rounded-lg p-3 border border-blue-500/30 shadow-xl whitespace-nowrap"
+              >
+                <div class="flex items-center">
+                  <Icon name="tabler:building-skyscraper" class="w-4 h-4 text-blue-400 mr-2" />
+                  <div>
+                    <p class="text-white font-medium text-sm">Trakos HQ</p>
+                    <p class="text-blue-300 text-xs">Miami, EEUU</p>
+                  </div>
+                </div>
+                <!-- Flecha del tooltip -->
+                <div
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800/95"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Miami HQ Point - ÚNICO CON PUNTO PULSANTE -->
+        <div class="absolute top-[20%] left-[20%] z-[3]">
+          <div class="relative group cursor-pointer">
+            <!-- Tooltip que aparece al hover -->
+            <div
+              class="absolute bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-[4]"
+            >
+              <div
+                class="bg-slate-800/95 backdrop-blur-sm rounded-lg p-3 border border-blue-500/30 shadow-xl whitespace-nowrap"
+              >
+                <div class="flex items-center">
+                  <Icon name="tabler:building-skyscraper" class="w-4 h-4 text-blue-400 mr-2" />
+                  <div>
+                    <p class="text-white font-medium text-sm">Trakos HQ</p>
+                    <p class="text-blue-300 text-xs">Miami, EEUU</p>
+                  </div>
+                </div>
+                <!-- Flecha del tooltip -->
+                <div
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800/95"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Miami Card con z-index corregido - REEMPLAZADO POR PUNTO INTERACTIVO -->
@@ -217,9 +272,7 @@ const metadata = {
   <!-- Floating Global Reach Section - ELEMENTO FLOTANTE -->
   <div class="relative -mt-12 sm:-mt-16 md:-mt-20 lg:-mt-24 xl:-mt-28 mb-4 sm:mb-6 md:mb-8 z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-      <div
-        class="bg-slate-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 border border-blue-500/30 mb-8 sm:mb-12 md:mb-16"
-      >
+      <div class="bg-slate-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 mb-8 sm:mb-12 md:mb-16">
         <!-- Industries Grid mejorado con responsividad optimizada -->
         <div class="mb-6 sm:mb-8 md:mb-10">
           <div
@@ -337,27 +390,23 @@ const metadata = {
   </div>
 
   <!-- Call to Action final -->
-  <CallToAction
-    title="Transforma la Gestión Operativa de tu Empresa"
-    subtitle="Con Trakos, transforma la gestión operativa de tu empresa con inteligencia artificial y datos precisos en tiempo real."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Comenzar Transformación',
-        href: '/contact',
-        icon: 'tabler:rocket',
-      },
-      {
-        text: 'Solicitar Demo',
-        href: '/contact',
-        icon: 'tabler:calendar',
-      },
-    ]}
-  />
-
-  <!-- Background Effects -->
-  <div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 pointer-events-none"></div>
-
-  <!-- Background Effects -->
-  <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 pointer-events-none"></div>
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <CallToAction
+      title="Transforma la Gestión Operativa de tu Empresa"
+      subtitle="Con Trakos, transforma la gestión operativa de tu empresa con inteligencia artificial y datos precisos en tiempo real."
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Descargar Trakos',
+          href: '#download',
+          icon: 'tabler:download',
+        },
+        {
+          text: 'Escríbenos',
+          href: '#contact',
+          icon: 'tabler:message-circle',
+        },
+      ]}
+    />
+  </SectionWrapper>
 </Layout>
