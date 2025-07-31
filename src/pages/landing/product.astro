@@ -1,41 +1,286 @@
 ---
+import SectionWrapper from '~/components/common/SectionWrapper.astro';
 import Layout from '~/layouts/LandingLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
 
 const metadata = {
-  title: 'Product Details Landing Page Demo',
+  title: 'Trakos - Control Total de tus Operaciones Productivas',
+  description:
+    'Aplicación multiplataforma que genera reportes automáticos de desempeño por tarea y trabajador, directamente desde el campo.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
+  <!-- Hero Widget ******************* -->
   <Hero
-    tagline="Product Details Demo"
-    title="Product Landing Page: Showcase with Precision and Passion!"
-    subtitle="Step-by-step guide to designing a Landing Page that highlights every facet of your product or service."
+    tagline="Trakos: El Control Total de tus Operaciones Productivas"
+    title="En tu Bolsillo"
+    subtitle="En industrias como construcción, minería, manufactura, comercio y más, cada jornada sin control es una oportunidad de eficiencia perdida. Trakos es la solución inteligente que transforma la gestión operativa con datos fiables, en tiempo real, con IA."
     actions={[
-      { variant: 'primary', text: 'Call to Action', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'Learn more', href: '#' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2174&q=80',
-      alt: 'A spotlight on a product. Product Details Landing Page Demo',
-    }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
-    actions={[
+      { variant: 'primary', text: 'Descargar', href: '#pricing', icon: 'tabler:download' },
       {
-        variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/onwidget/astrowind',
-        icon: 'tabler:download',
+        text: 'Ver Video',
+        href: 'https://www.youtube.com/watch?v=n43D8uk_SLw',
+        target: '_blank',
+        icon: 'tabler:player-play',
       },
     ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Trakos - Control de operaciones desde el móvil',
+    }}
+    video="https://www.youtube.com/watch?v=n43D8uk_SLw"
   />
+
+  <!-- Content Widget - Problema y Solución **************** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <Content
+      title="¿Qué te Frena en tus Operaciones?"
+      subtitle="Tus datos operativos están dispersos, llegan tarde o simplemente no los recibes. Sin información real y a tiempo, tomar decisiones estratégicas es prácticamente imposible."
+      items={[
+        {
+          title: 'Datos Dispersos',
+          description: 'Información fragmentada en diferentes sistemas y formatos.',
+          icon: 'tabler:puzzle',
+        },
+        {
+          title: 'Información Tardía',
+          description: 'Los reportes llegan cuando ya es demasiado tarde para actuar.',
+          icon: 'tabler:clock-exclamation',
+        },
+        {
+          title: 'Decisiones a Ciegas',
+          description: 'Sin datos confiables, las decisiones se basan en suposiciones.',
+          icon: 'tabler:eye-off',
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        alt: 'Problemas operativos sin control',
+      }}
+    />
+  </SectionWrapper>
+
+  <!-- Features2 Widget - Qué Puedes Lograr ************** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <Features2
+      title="¿Qué Puedes Lograr con Trakos?"
+      subtitle="Con Trakos, transformas la gestión operativa con herramientas inteligentes y reportes automáticos."
+      columns={2}
+      items={[
+        {
+          title: 'Define Objetivos Diarios Claros',
+          description:
+            'Planifica tareas con unidades de medida personalizadas (m³, TM, galones, unidades vendidas, horas-máquina, km, etc.).',
+          icon: 'tabler:target',
+        },
+        {
+          title: 'Recibe Datos del Campo en Tiempo Real',
+          description: 'Tus equipos registran avances desde su móvil, incluyendo objetivos, comentarios y fotos.',
+          icon: 'tabler:device-mobile',
+        },
+        {
+          title: 'Anticípate a los Problemas',
+          description:
+            'Identifica retrasos, consumos excesivos, bajo rendimiento o cuellos de botella antes de que afecten tus metas.',
+          icon: 'tabler:alert-triangle',
+        },
+        {
+          title: 'Obtén Reportes Automáticos y Profesionales',
+          description:
+            'Trakos genera informes en PDF con gráficos, indicadores de cumplimiento, alertas y evidencias visuales.',
+          icon: 'tabler:file-analytics',
+        },
+      ]}
+    />
+  </SectionWrapper>
+
+  <!-- Content Widget - Reportes = Decisiones **************** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <Content
+      isReversed
+      title="Reportes Diarios = Decisiones Estratégicas"
+      subtitle="Cada tarea. Cada trabajador. Cada jornada. Todo registrado, visualizado y analizado. Deja atrás las hojas sueltas, Excels desactualizados y mensajes dispersos."
+      content="Con Trakos, tienes la trazabilidad total de tu operación al alcance de tu mano."
+      image={{
+        src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80',
+        alt: 'Reportes y análisis de datos',
+      }}
+    />
+  </SectionWrapper>
+
+  <!-- Features2 Widget - Industrias ************** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <Features2
+      title="Funciona en Múltiples Industrias"
+      subtitle="Trakos se adapta a tus necesidades específicas, sin importar tu sector."
+      columns={3}
+      items={[
+        {
+          title: 'Construcción Civil',
+          description:
+            'Reportes por frente de obra y trabajador. Control de avance físico, maquinaria, materiales y subcontratos.',
+          icon: 'tabler:building-factory',
+          iconColor: 'text-orange-400',
+          iconBg: 'bg-gradient-to-br from-orange-400 to-orange-600',
+        },
+        {
+          title: 'Minería y Metalurgia',
+          description:
+            'Desempeño en perforación, voladura, acarreo y planta. KPIs como TM extraídas, horas-equipo, % recuperación.',
+          icon: 'tabler:hammer',
+          iconColor: 'text-yellow-400',
+          iconBg: 'bg-gradient-to-br from-yellow-400 to-yellow-600',
+        },
+        {
+          title: 'Manufactura y Producción',
+          description:
+            'Trazabilidad por línea o celda operativa. Control de mermas, tiempos improductivos y productividad del operario.',
+          icon: 'tabler:settings',
+          iconColor: 'text-purple-400',
+          iconBg: 'bg-gradient-to-br from-purple-400 to-purple-600',
+        },
+        {
+          title: 'Comercio y Retail',
+          description:
+            'Registro de unidades vendidas, tiempo de atención por colaborador. Análisis de conversión por tienda.',
+          icon: 'tabler:shopping-cart',
+          iconColor: 'text-green-400',
+          iconBg: 'bg-gradient-to-br from-green-400 to-green-600',
+        },
+        {
+          title: 'Logística y Distribución',
+          description:
+            'Control por rutas, entregas completadas y horas operativas. Indicadores de eficiencia por vehículo.',
+          icon: 'tabler:truck',
+          iconColor: 'text-blue-400',
+          iconBg: 'bg-gradient-to-br from-blue-400 to-blue-600',
+        },
+        {
+          title: 'Agroindustria',
+          description:
+            'Gestión por lote, hectárea, maquinaria y labores diarias. Registro de consumo de insumos y rendimiento.',
+          icon: 'tabler:plant',
+          iconColor: 'text-pink-400',
+          iconBg: 'bg-gradient-to-br from-pink-400 to-pink-600',
+        },
+      ]}
+    />
+  </SectionWrapper>
+
+  <!-- Steps2 Widget - Cómo Funciona ************** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <Steps2
+      title="¿Cómo Funciona Trakos?"
+      subtitle="La eficiencia en 4 pasos sencillos:"
+      items={[
+        {
+          title: 'El Administrador Crea su Cuenta',
+          description: 'Descarga la app, configura tu proyecto y registra a tu equipo. (Solo tú pagas la suscripción).',
+          icon: 'tabler:user-plus',
+        },
+        {
+          title: 'Planificas Tareas y Objetivos',
+          description: 'Asigna metas diarias por trabajador, usando tus propias unidades y criterios.',
+          icon: 'tabler:calendar-plus',
+        },
+        {
+          title: 'Tu Equipo Reporta Desde el Campo/Tienda',
+          description: 'Los usuarios registran objetivos, fotos y comentarios directamente desde la app.',
+          icon: 'tabler:device-mobile-message',
+        },
+        {
+          title: 'Trakos Genera tus Reportes',
+          description:
+            'Recibe análisis automáticos con IA que muestran el avance de tareas, rendimiento del equipo y áreas de mejora.',
+          icon: 'tabler:report-analytics',
+        },
+      ]}
+    />
+  </SectionWrapper>
+
+  <!-- Content Widget - Acceso Sencillo **************** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <Content
+      title="Acceso Sencillo. Gestión Poderosa."
+      items={[
+        {
+          title: 'Un Solo Pago para el Administrador',
+          description: 'Todo tu equipo accede gratis desde móvil o PC con credenciales que tú creas.',
+          icon: 'tabler:credit-card',
+        },
+        {
+          title: 'Roles Adaptados a la Responsabilidad',
+          description: 'Administradores gestionan y analizan; Trabajadores solo ingresan avances.',
+          icon: 'tabler:users',
+        },
+        {
+          title: 'Reportes en PDF Listos para Usar',
+          description: 'Sustenta con evidencia, controla con indicadores y decide con datos sólidos.',
+          icon: 'tabler:file-type-pdf',
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        alt: 'Gestión sencilla y poderosa',
+      }}
+    />
+  </SectionWrapper>
+
+  <!-- CallToAction Widget *********** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <CallToAction
+      title="Descarga Trakos y Lidera con Datos"
+      subtitle="Convierte tu gestión en un modelo de eficiencia comprobable. Toma decisiones con respaldo, no con suposiciones. ¡Empieza hoy mismo!"
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Descargar Trakos Ahora',
+          href: '#',
+          icon: 'tabler:download',
+        },
+        {
+          text: 'Escríbenos por Chat',
+          href: '#',
+          icon: 'tabler:message-circle',
+        },
+      ]}
+    />
+  </SectionWrapper>
+
+  <!-- FAQs Widget ******************* -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <FAQs
+      title="¿Tienes Preguntas?"
+      subtitle="Te mostraremos cómo Trakos puede optimizar tu industria."
+      items={[
+        {
+          title: '¿Cómo funciona el sistema de créditos de IA?',
+          description:
+            'Los créditos de IA se utilizan para generar reportes automáticos y análisis predictivos. Cada plan incluye créditos anuales que puedes recargar según tus necesidades.',
+        },
+        {
+          title: '¿Puedo usar Trakos sin conexión a internet?',
+          description:
+            'Sí, la aplicación permite registrar datos offline y sincroniza automáticamente cuando recuperas la conexión.',
+        },
+        {
+          title: '¿Qué tipo de soporte técnico incluye?',
+          description:
+            'Incluimos soporte técnico completo, capacitación inicial y asistencia para la configuración de tu proyecto.',
+        },
+        {
+          title: '¿Puedo personalizar las unidades de medida?',
+          description:
+            'Absolutamente. Trakos se adapta a cualquier unidad de medida específica de tu industria (m³, TM, galones, horas-máquina, etc.).',
+        },
+      ]}
+    />
+  </SectionWrapper>
 </Layout>

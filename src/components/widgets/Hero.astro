@@ -12,6 +12,7 @@ const {
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
+  video,
 
   id,
   bgImage,
@@ -19,6 +20,15 @@ const {
   headerData,
   containerClass,
 } = Astro.props;
+
+// Función para extraer el ID del video de YouTube
+function getYouTubeVideoId(url: string): string | null {
+  const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+}
+
+const videoId = video ? getYouTubeVideoId(video) : null;
 ---
 
 <section class=`relative not-prose overflow-hidden header-hero min-h-screen ${containerClass}` {...id ? { id } : {}}>
@@ -96,10 +106,23 @@ const {
         {content && <Fragment set:html={content} />}
       </div>
       <div
-        class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade relative z-[5] mt-6 sm:mt-8 lg:mt-12"
+        class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade relative z-[5] mt-6 sm:mt-8 lg:mt-12"
       >
         {
-          image && (
+          video && videoId ? (
+            <div class="relative m-auto max-w-5xl px-2 sm:px-0">
+              <div class="relative w-full" style="padding-bottom: 56.25%; /* 16:9 aspect ratio */">
+                <iframe
+                  class="absolute top-0 left-0 w-full h-full rounded-lg sm:rounded-xl shadow-xl"
+                  src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0`}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                />
+              </div>
+            </div>
+          ) : image ? (
             <div class="relative m-auto max-w-5xl px-2 sm:px-0">
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
@@ -115,7 +138,7 @@ const {
                 />
               )}
             </div>
-          )
+          ) : null
         }
       </div>
     </div>

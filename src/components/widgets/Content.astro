@@ -60,10 +60,11 @@ const {
           defaultIcon="tabler:check"
           classes={{
             container: `gap-y-4 md:gap-y-8`,
-            panel: 'max-w-none',
-            title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-            description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
-            icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
+            panel:
+              'max-w-none relative overflow-hidden bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-lg transition-all duration-300 group',
+            title: 'text-lg font-semibold text-gray-900 dark:text-white mb-2 ml-2 rtl:ml-0 rtl:mr-2',
+            description: 'text-gray-600 dark:text-gray-300 leading-relaxed text-sm ml-2 rtl:ml-0 rtl:mr-2',
+            icon: 'flex h-8 w-8 items-center justify-center rounded-xl shadow-sm group-hover:scale-105 transition-transform duration-300',
             action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
           }}
         />

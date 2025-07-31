@@ -47,7 +47,7 @@ export default defineConfig({
           'smartphone-tablet',
           'bullish',
           'businesswoman',
-          'factory',
+          'factory', // ✅ Perfecto para manufactura
           'checklist',
         ],
       },

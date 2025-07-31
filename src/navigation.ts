@@ -12,15 +12,20 @@ export const headerData = {
     },
     {
       text: 'Producto',
-      href: getPermalink('/producto'),
+      href: getPermalink('/landing/product'),
     },
     {
       text: 'Precio',
-      href: getPermalink('/precio'),
+      href: getPermalink('/pricing'),
     },
   ],
   actions: [
-    { text: 'Descargar Trakos', href: getPermalink('/descarga'), class: 'btn-primary', icon: 'tabler:download' },
+    {
+      text: 'Descargar Trakos',
+      href: getPermalink('/landing/product#pricing'),
+      class: 'btn-primary',
+      icon: 'tabler:download',
+    },
   ],
 };
 
