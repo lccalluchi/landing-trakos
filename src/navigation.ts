@@ -8,21 +8,21 @@ export const headerData = {
     },
     {
       text: 'Empresa',
-      href: getPermalink('/company'),
+      href: getPermalink('/empresa'),
     },
     {
       text: 'Producto',
-      href: getPermalink('/landing/product'),
+      href: getPermalink('/producto'),
     },
     {
       text: 'Precio',
-      href: getPermalink('/pricing'),
+      href: '',
+      disabled: true,
     },
   ],
   actions: [
     {
       text: 'Descargar Trakos',
-      href: getPermalink('/landing/product#pricing'),
       class: 'btn-primary',
       icon: 'tabler:download',
     },
@@ -43,8 +43,8 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Términos de Servicio', href: '#terms' },
-    { text: 'Política de Privacidad', href: '#privacy' },
+    { text: 'Términos de Servicio', href: '' },
+    { text: 'Política de Privacidad', href: '' },
   ],
   socialLinks: [
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },

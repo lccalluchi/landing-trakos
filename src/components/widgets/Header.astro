@@ -140,7 +140,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
       <!-- Right side buttons -->
       <div class="hidden md:flex items-center justify-end space-x-4 w-1/4">
-        {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
+        {/* showToggleTheme && <ToggleTheme iconClass="w-5 h-5" /> */}
 
         {
           actions &&
@@ -162,31 +162,46 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
   <div class="md:hidden hidden mt-3 relative z-10" id="mobile-menu">
     <div class="mx-4 bg-white backdrop-blur-md shadow-md rounded-2xl py-4 px-5 space-y-2 border border-gray-200">
       {
-        links.map(({ text, href, links }) => (
+        links.map(({ text, href, links, disabled }) => (
           <div class="mb-1">
             {links?.length ? (
               <>
                 <button
                   type="button"
-                  class="w-full text-left px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 flex justify-between items-center rounded-xl transition-colors duration-200 mobile-submenu-toggle"
+                  class={`w-full text-left px-4 py-2 text-base font-medium flex justify-between items-center rounded-xl transition-colors duration-200 mobile-submenu-toggle ${
+                    disabled ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                  }`}
+                  disabled={disabled}
                 >
                   {text}
                   <Icon name="tabler:chevron-down" width={16} height={16} class="" />
                 </button>
-                <div class="hidden pl-4 mt-1 mb-2 space-y-2 mobile-submenu overflow-hidden transition-all duration-300">
-                  {links.map(({ text: text2, href: href2 }) => (
-                    <a
-                      class:list={[
-                        'block px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors duration-200',
-                        { 'bg-blue-50 text-blue-600': href2 === currentPath },
-                      ]}
-                      href={href2}
-                    >
-                      {text2}
-                    </a>
-                  ))}
-                </div>
+                {!disabled && (
+                  <div class="hidden pl-4 mt-1 mb-2 space-y-2 mobile-submenu overflow-hidden transition-all duration-300">
+                    {links.map(({ text: text2, href: href2, disabled: disabled2 }) =>
+                      disabled2 ? (
+                        <span class="block px-4 py-2 text-base font-medium text-gray-400 cursor-not-allowed rounded-xl">
+                          {text2}
+                        </span>
+                      ) : (
+                        <a
+                          class:list={[
+                            'block px-4 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-colors duration-200',
+                            { 'bg-blue-50 text-blue-600': href2 === currentPath },
+                          ]}
+                          href={href2}
+                        >
+                          {text2}
+                        </a>
+                      )
+                    )}
+                  </div>
+                )}
               </>
+            ) : disabled ? (
+              <span class="block px-4 py-2 text-base font-medium text-gray-400 cursor-not-allowed rounded-xl">
+                {text}
+              </span>
             ) : (
               <a
                 class:list={[
