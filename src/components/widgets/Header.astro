@@ -140,7 +140,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
       <!-- Right side buttons -->
       <div class="hidden md:flex items-center justify-end space-x-4 w-1/4">
-        {/* showToggleTheme && <ToggleTheme iconClass="w-5 h-5" /> */}
+        {showToggleTheme && <ToggleTheme iconClass="w-5 h-5" />}
 
         {
           actions &&
