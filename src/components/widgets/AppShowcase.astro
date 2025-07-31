@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
+import desktopImg from '~/assets/images/desktop.png';
+import mobileImg from '~/assets/images/mobile.png';
 import SectionWrapper from '~/components/common/SectionWrapper.astro';
 
 const {
@@ -10,8 +12,8 @@ const {
   isDark = false,
   classes = {},
   bg = undefined,
-  mainImage = { src: '/src/assets/images/desktop.png', alt: 'Dashboard Trakos' },
-  mobileImage = { src: '/src/assets/images/mobile.png', alt: 'Trakos en móvil' },
+  mainImage = { src: desktopImg, alt: 'Dashboard Trakos' },
+  mobileImage = { src: mobileImg, alt: 'Trakos en móvil' },
   showFeatureBadges = true,
   showCTA = false, // Cambiado a false
   ctaText = 'Descargar Trakos Ahora',
