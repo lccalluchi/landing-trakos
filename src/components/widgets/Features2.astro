@@ -26,7 +26,7 @@ const {
     tagline={tagline}
     classes={{
       container: 'text-center mb-12 lg:mb-16',
-      title: 'text-4xl md:text-5xl font-bold tracking-tight mb-4',
+      title: 'text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900 dark:text-white',
       subtitle: 'text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto',
       tagline:
         'inline-block px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-3',
@@ -40,11 +40,12 @@ const {
     defaultIcon={defaultIcon}
     classes={{
       container: 'gap-6 md:gap-8',
-      panel: '',
-      icon: '',
-      title: '',
-      description: '',
-      action: '',
+      panel: 'hover:scale-105 hover:shadow-2xl dark:hover:shadow-slate-900/70 transition-all duration-500',
+      icon: 'group-hover:rotate-12 transition-transform duration-500',
+      title:
+        'text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300',
+      description: 'text-gray-600 dark:text-gray-300 leading-relaxed',
+      action: 'group-hover:translate-x-2 transition-transform duration-300',
       ...((classes?.items as Record<string, never>) ?? {}),
     }}
   />

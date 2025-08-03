@@ -26,8 +26,12 @@ const {
     defaultIcon="tabler:chevron-right"
     classes={{
       container: `${columns === 1 ? 'max-w-4xl' : ''} gap-y-8 md:gap-y-12`,
-      panel: 'max-w-none',
-      icon: 'flex-shrink-0 mt-1 w-6 h-6 ',
+      panel:
+        'max-w-none relative overflow-hidden bg-white dark:bg-slate-800 rounded-xl p-4 border border-gray-200 dark:border-slate-700 shadow-md hover:shadow-lg dark:shadow-slate-900/50 dark:hover:shadow-slate-800/50 transition-all duration-300 group',
+      title: 'text-lg font-semibold text-gray-900 dark:text-white mb-2 ml-2 rtl:ml-0 rtl:mr-2',
+      description: 'text-gray-600 dark:text-gray-300 leading-relaxed text-sm ml-2 rtl:ml-0 rtl:mr-2',
+      icon: 'flex h-8 w-8 items-center justify-center rounded-xl shadow-sm group-hover:scale-105 transition-transform duration-300 text-white dark:text-gray-200',
+      action: 'text-lg font-medium leading-6 text-gray-900 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
     }}
   />
 </WidgetWrapper>

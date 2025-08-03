@@ -18,58 +18,59 @@ const {
 // Esquemas de colores profesionales y vibrantes
 const colorSchemes = [
   {
-    bg: 'from-blue-50 via-blue-50 to-blue-100',
-    border: 'border-blue-200',
-    icon: 'from-blue-500 to-blue-600',
-    iconGlow: 'from-blue-500/30 to-blue-600/30',
+    bg: 'from-blue-50 via-blue-50 to-blue-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-700',
+    border: 'border-blue-200 dark:border-slate-600',
+    icon: 'from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500',
+    iconGlow: 'from-blue-500/30 to-blue-600/30 dark:from-blue-400/30 dark:to-blue-500/30',
     iconColor: 'text-white',
-    accent: 'text-blue-600',
-    hover: 'hover:border-blue-300 hover:shadow-blue-100',
+    accent: 'text-blue-600 dark:text-blue-400',
+    hover: 'hover:border-blue-300 hover:shadow-blue-100 dark:hover:border-slate-500 dark:hover:shadow-slate-800/50',
   },
   {
-    bg: 'from-emerald-50 via-emerald-50 to-emerald-100',
-    border: 'border-emerald-200',
-    icon: 'from-emerald-500 to-emerald-600',
-    iconGlow: 'from-emerald-500/30 to-emerald-600/30',
+    bg: 'from-emerald-50 via-emerald-50 to-emerald-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-700',
+    border: 'border-emerald-200 dark:border-slate-600',
+    icon: 'from-emerald-500 to-emerald-600 dark:from-emerald-400 dark:to-emerald-500',
+    iconGlow: 'from-emerald-500/30 to-emerald-600/30 dark:from-emerald-400/30 dark:to-emerald-500/30',
     iconColor: 'text-white',
-    accent: 'text-emerald-600',
-    hover: 'hover:border-emerald-300 hover:shadow-emerald-100',
+    accent: 'text-emerald-600 dark:text-emerald-400',
+    hover:
+      'hover:border-emerald-300 hover:shadow-emerald-100 dark:hover:border-slate-500 dark:hover:shadow-slate-800/50',
   },
   {
-    bg: 'from-purple-50 via-purple-50 to-purple-100',
-    border: 'border-purple-200',
-    icon: 'from-purple-500 to-purple-600',
-    iconGlow: 'from-purple-500/30 to-purple-600/30',
+    bg: 'from-purple-50 via-purple-50 to-purple-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-700',
+    border: 'border-purple-200 dark:border-slate-600',
+    icon: 'from-purple-500 to-purple-600 dark:from-purple-400 dark:to-purple-500',
+    iconGlow: 'from-purple-500/30 to-purple-600/30 dark:from-purple-400/30 dark:to-purple-500/30',
     iconColor: 'text-white',
-    accent: 'text-purple-600',
-    hover: 'hover:border-purple-300 hover:shadow-purple-100',
+    accent: 'text-purple-600 dark:text-purple-400',
+    hover: 'hover:border-purple-300 hover:shadow-purple-100 dark:hover:border-slate-500 dark:hover:shadow-slate-800/50',
   },
   {
-    bg: 'from-orange-50 via-orange-50 to-orange-100',
-    border: 'border-orange-200',
-    icon: 'from-orange-500 to-orange-600',
-    iconGlow: 'from-orange-500/30 to-orange-600/30',
+    bg: 'from-orange-50 via-orange-50 to-orange-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-700',
+    border: 'border-orange-200 dark:border-slate-600',
+    icon: 'from-orange-500 to-orange-600 dark:from-orange-400 dark:to-orange-500',
+    iconGlow: 'from-orange-500/30 to-orange-600/30 dark:from-orange-400/30 dark:to-orange-500/30',
     iconColor: 'text-white',
-    accent: 'text-orange-600',
-    hover: 'hover:border-orange-300 hover:shadow-orange-100',
+    accent: 'text-orange-600 dark:text-orange-400',
+    hover: 'hover:border-orange-300 hover:shadow-orange-100 dark:hover:border-slate-500 dark:hover:shadow-slate-800/50',
   },
   {
-    bg: 'from-rose-50 via-rose-50 to-rose-100',
-    border: 'border-rose-200',
-    icon: 'from-rose-500 to-rose-600',
-    iconGlow: 'from-rose-500/30 to-rose-600/30',
+    bg: 'from-rose-50 via-rose-50 to-rose-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-700',
+    border: 'border-rose-200 dark:border-slate-600',
+    icon: 'from-rose-500 to-rose-600 dark:from-rose-400 dark:to-rose-500',
+    iconGlow: 'from-rose-500/30 to-rose-600/30 dark:from-rose-400/30 dark:to-rose-500/30',
     iconColor: 'text-white',
-    accent: 'text-rose-600',
-    hover: 'hover:border-rose-300 hover:shadow-rose-100',
+    accent: 'text-rose-600 dark:text-rose-400',
+    hover: 'hover:border-rose-300 hover:shadow-rose-100 dark:hover:border-slate-500 dark:hover:shadow-slate-800/50',
   },
   {
-    bg: 'from-indigo-50 via-indigo-50 to-indigo-100',
-    border: 'border-indigo-200',
-    icon: 'from-indigo-500 to-indigo-600',
-    iconGlow: 'from-indigo-500/30 to-indigo-600/30',
+    bg: 'from-indigo-50 via-indigo-50 to-indigo-100 dark:from-slate-800 dark:via-slate-800 dark:to-slate-700',
+    border: 'border-indigo-200 dark:border-slate-600',
+    icon: 'from-indigo-500 to-indigo-600 dark:from-indigo-400 dark:to-indigo-500',
+    iconGlow: 'from-indigo-500/30 to-indigo-600/30 dark:from-indigo-400/30 dark:to-indigo-500/30',
     iconColor: 'text-white',
-    accent: 'text-indigo-600',
-    hover: 'hover:border-indigo-300 hover:shadow-indigo-100',
+    accent: 'text-indigo-600 ',
+    hover: 'hover:border-indigo-300 hover:shadow-indigo-100 dark:hover:border-slate-500 dark:hover:shadow-slate-800/50',
   },
 ];
 ---
@@ -94,89 +95,87 @@ const colorSchemes = [
         const colorScheme = colorSchemes[index % colorSchemes.length];
 
         return (
-          <div
-            class={twMerge(
-              `group relative h-full bg-gradient-to-br ${colorScheme.bg} rounded-2xl p-6 border-2 ${colorScheme.border} ${colorScheme.hover} shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade`,
-              panelClass,
-              itemClasses?.panel
-            )}
-          >
-            {/* Decoración de fondo elegante */}
-            <div class="absolute top-0 right-0 w-32 h-32 opacity-10 overflow-hidden rounded-2xl">
-              <div class={`w-full h-full bg-gradient-to-br ${colorScheme.icon} transform rotate-12 scale-150`} />
-            </div>
+          <div class="relative group">
+            {/* Card principal */}
+            <div
+              class={twMerge(
+                `relative h-full bg-gradient-to-br ${colorScheme.bg} rounded-2xl p-6 border-2 ${colorScheme.border} ${colorScheme.hover} shadow-lg hover:shadow-xl dark:shadow-slate-900/50 dark:hover:shadow-slate-800/50 transition-all duration-500 hover:-translate-y-2 intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade z-10`,
+                panelClass,
+                itemClasses?.panel
+              )}
+            >
+              {/* Decoración de fondo elegante */}
+              <div class="absolute top-0 right-0 w-32 h-32 opacity-10 dark:opacity-5 overflow-hidden rounded-2xl">
+                <div class={`w-full h-full bg-gradient-to-br ${colorScheme.icon} transform rotate-12 scale-150`} />
+              </div>
 
-            {/* Contenedor del icono con diseño profesional */}
-            <div class="relative z-10 mb-6">
-              {(icon || defaultIcon) && (
-                <div class="relative inline-block">
-                  {/* Efecto de resplandor elegante */}
-                  <div
-                    class={`absolute inset-0 bg-gradient-to-br ${colorScheme.iconGlow} rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-300`}
-                  />
-                  {/* Icono principal con gradiente */}
-                  <div
-                    class={`relative w-14 h-14 bg-gradient-to-br ${colorScheme.icon} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300`}
-                  >
-                    <Icon
-                      name={icon || defaultIcon}
-                      class={twMerge(`w-7 h-7 ${colorScheme.iconColor}`, defaultIconClass, itemClasses?.icon)}
+              {/* Contenedor del icono con diseño profesional */}
+              <div class="relative z-10 mb-6">
+                {(icon || defaultIcon) && (
+                  <div class="relative inline-block">
+                    {/* Efecto de resplandor elegante */}
+                    <div
+                      class={`absolute inset-0 bg-gradient-to-br ${colorScheme.iconGlow} rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-300`}
+                    />
+                    {/* Icono principal con gradiente */}
+                    <div
+                      class={`relative w-14 h-14 bg-gradient-to-br ${colorScheme.icon} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300`}
+                    >
+                      <Icon
+                        name={icon || defaultIcon}
+                        class={twMerge(`w-7 h-7 ${colorScheme.iconColor}`, defaultIconClass, itemClasses?.icon)}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Contenido con espaciado profesional */}
+              <div class="relative z-10 space-y-4">
+                {title && (
+                  <div>
+                    <h3
+                      class={twMerge(
+                        'text-xl font-bold text-gray-900 dark:text-white leading-tight',
+                        titleClass,
+                        itemClasses?.title
+                      )}
+                    >
+                      {title}
+                    </h3>
+                  </div>
+                )}
+
+                {description && (
+                  <div>
+                    <p
+                      class={twMerge(
+                        'text-gray-600 dark:text-gray-300 leading-relaxed text-sm',
+                        descriptionClass,
+                        itemClasses?.description
+                      )}
+                      set:html={description}
                     />
                   </div>
-                </div>
-              )}
+                )}
+
+                {callToAction && (
+                  <div class={twMerge('pt-2', actionClass, itemClasses?.actionClass)}>
+                    <Button
+                      variant="link"
+                      {...callToAction}
+                      class={`${colorScheme.accent} hover:opacity-70 font-semibold transition-all duration-300 text-sm inline-flex items-center group/btn`}
+                    >
+                      {callToAction.text}
+                      <Icon
+                        name="tabler:arrow-right"
+                        class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300"
+                      />
+                    </Button>
+                  </div>
+                )}
+              </div>
             </div>
-
-            {/* Contenido con espaciado profesional */}
-            <div class="relative z-10 space-y-4">
-              {title && (
-                <div>
-                  <h3
-                    class={twMerge(
-                      'text-xl font-bold text-gray-900 dark:text-white leading-tight',
-                      titleClass,
-                      itemClasses?.title
-                    )}
-                  >
-                    {title}
-                  </h3>
-                </div>
-              )}
-
-              {description && (
-                <div>
-                  <p
-                    class={twMerge(
-                      'text-gray-600 dark:text-gray-300 leading-relaxed text-sm',
-                      descriptionClass,
-                      itemClasses?.description
-                    )}
-                    set:html={description}
-                  />
-                </div>
-              )}
-
-              {callToAction && (
-                <div class={twMerge('pt-2', actionClass, itemClasses?.actionClass)}>
-                  <Button
-                    variant="link"
-                    {...callToAction}
-                    class={`${colorScheme.accent} hover:opacity-70 font-semibold transition-all duration-300 text-sm inline-flex items-center group/btn`}
-                  >
-                    {callToAction.text}
-                    <Icon
-                      name="tabler:arrow-right"
-                      class="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300"
-                    />
-                  </Button>
-                </div>
-              )}
-            </div>
-
-            {/* Línea de acento inferior */}
-            <div
-              class={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${colorScheme.icon} rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-            />
           </div>
         );
       })}

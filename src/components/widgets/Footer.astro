@@ -1,7 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SITE } from 'astrowind:config';
-import { getHomePermalink } from '~/utils/permalinks';
 import SectionWrapper from '../common/SectionWrapper.astro';
 
 interface Link {
@@ -27,36 +25,57 @@ export interface Props {
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'dark' } = Astro.props;
 ---
 
-<footer class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+<footer
+  class="bg-gradient-to-br from-slate-50 to-white dark:from-slate-800 dark:to-slate-700 text-gray-900 dark:text-white border-t border-gray-200 dark:border-slate-700 shadow-md dark:shadow-slate-900/50"
+>
   <SectionWrapper>
     <!-- Sección principal del footer -->
     <div class="py-8 md:py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start lg:items-center">
       <!-- Columna izquierda: Información de la empresa -->
       <div class="space-y-6 md:space-y-8">
-
         <!-- Información de contacto -->
         <div class="space-y-4">
-          <h3 class="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4">Contacto</h3>
+          <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-3 md:mb-4">Contacto</h3>
 
-          <div class="flex items-center space-x-3 group cursor-pointer hover:bg-slate-800/30 p-2 rounded-lg transition-colors">
-            <div class="bg-blue-500/20 p-2 rounded-lg group-hover:bg-blue-500/30 transition-colors">
-              <Icon name="tabler:phone" class="w-5 h-5 text-blue-400" />
+          <div
+            class="flex items-center space-x-3 group cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-800/30 p-2 rounded-lg transition-colors"
+          >
+            <div
+              class="bg-blue-100 dark:bg-blue-500/20 p-2 rounded-lg group-hover:bg-blue-200 dark:group-hover:bg-blue-500/30 transition-colors"
+            >
+              <Icon name="tabler:phone" class="w-5 h-5 text-blue-600 dark:text-blue-400" />
             </div>
-            <span class="text-sm md:text-base text-gray-300 group-hover:text-white transition-colors">+1 305 555 5555</span>
+            <span
+              class="text-sm md:text-base text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors"
+              >+1 305 555 5555</span
+            >
           </div>
 
-          <div class="flex items-center space-x-3 group cursor-pointer hover:bg-slate-800/30 p-2 rounded-lg transition-colors">
-            <div class="bg-green-500/20 p-2 rounded-lg group-hover:bg-green-500/30 transition-colors">
-              <Icon name="tabler:mail" class="w-5 h-5 text-green-400" />
+          <div
+            class="flex items-center space-x-3 group cursor-pointer hover:bg-gray-100 dark:hover:bg-slate-800/30 p-2 rounded-lg transition-colors"
+          >
+            <div
+              class="bg-green-100 dark:bg-green-500/20 p-2 rounded-lg group-hover:bg-green-200 dark:group-hover:bg-green-500/30 transition-colors"
+            >
+              <Icon name="tabler:mail" class="w-5 h-5 text-green-600 dark:text-green-400" />
             </div>
-            <span class="text-sm md:text-base text-gray-300 group-hover:text-white transition-colors break-all">info@trakos.net</span>
+            <span
+              class="text-sm md:text-base text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors break-all"
+              >info@trakos.net</span
+            >
           </div>
 
-          <div class="flex items-start space-x-3 group hover:bg-slate-800/30 p-2 rounded-lg transition-colors">
-            <div class="bg-orange-500/20 p-2 rounded-lg group-hover:bg-orange-500/30 transition-colors">
-              <Icon name="tabler:map-pin" class="w-5 h-5 text-orange-400" />
+          <div
+            class="flex items-start space-x-3 group hover:bg-gray-100 dark:hover:bg-slate-800/30 p-2 rounded-lg transition-colors"
+          >
+            <div
+              class="bg-orange-100 dark:bg-orange-500/20 p-2 rounded-lg group-hover:bg-orange-200 dark:group-hover:bg-orange-500/30 transition-colors"
+            >
+              <Icon name="tabler:map-pin" class="w-5 h-5 text-orange-600 dark:text-orange-400" />
             </div>
-            <div class="text-sm md:text-base text-gray-300 group-hover:text-white transition-colors">
+            <div
+              class="text-sm md:text-base text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors"
+            >
               <div>701 Brickell Avenue, Suite 1500</div>
               <div>Miami, FL 33131 – Estados Unidos</div>
             </div>
@@ -67,11 +86,11 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
         {
           socialLinks?.length ? (
             <div>
-              <h3 class="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4">Síguenos</h3>
+              <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-3 md:mb-4">Síguenos</h3>
               <div class="flex flex-wrap gap-3">
                 {socialLinks.map(({ ariaLabel, href, icon }) => (
                   <a
-                    class="bg-slate-700/50 hover:bg-blue-500/20 p-3 rounded-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 group"
+                    class="bg-gray-200 dark:bg-slate-700/50 hover:bg-blue-100 dark:hover:bg-blue-500/20 p-3 rounded-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 group"
                     aria-label={ariaLabel}
                     href={href}
                     target="_blank"
@@ -79,7 +98,7 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
                   >
                     <Icon
                       name={icon}
-                      class="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300"
+                      class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300"
                     />
                   </a>
                 ))}
@@ -93,8 +112,10 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
 
       <!-- Columna derecha: Mapa interactivo -->
       <div class="lg:pl-8 mt-6 lg:mt-0">
-        <h3 class="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4">Nuestra Ubicación</h3>
-        <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-3 md:p-4 border border-slate-700/50">
+        <h3 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-3 md:mb-4">Nuestra Ubicación</h3>
+        <div
+          class="bg-gray-100 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl p-3 md:p-4 border border-gray-300 dark:border-slate-700/50"
+        >
           <div class="relative h-48 md:h-64 rounded-xl overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8!2d-80.1917902!3d25.7616798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b484c7c1c1c1%3A0x1234567890abcdef!2s701%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
@@ -114,12 +135,12 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     </div>
 
     <!-- Footer bottom -->
-    <div class="border-t border-slate-700/50 py-4 md:py-6">
+    <div class="border-t border-gray-300 dark:border-slate-700/50 py-4 md:py-6">
       <div class="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
         <!-- Copyright -->
-        <div class="text-xs md:text-sm text-gray-400 text-center md:text-left">
-          <span class="font-medium text-white">TRAKOS LLC</span> © {new Date().getFullYear()}. Todos los derechos
-          reservados.
+        <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
+          <span class="font-medium text-gray-900 dark:text-white">TRAKOS LLC</span> © {new Date().getFullYear()}. Todos
+          los derechos reservados.
         </div>
 
         <!-- Enlaces secundarios -->
@@ -127,7 +148,10 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           secondaryLinks?.length > 0 && (
             <div class="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
               {secondaryLinks.map(({ text, href }) => (
-                <a class="text-xs md:text-sm text-gray-400 hover:text-white transition-colors duration-300" href={href}>
+                <a
+                  class="text-xs md:text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                  href={href}
+                >
                   <Fragment set:html={text} />
                 </a>
               ))}

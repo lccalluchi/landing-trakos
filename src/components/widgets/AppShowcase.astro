@@ -93,8 +93,8 @@ const {
       showFeatureBadges && (
         <div class="flex flex-wrap justify-center gap-2 mb-6">
           {features.map((feature) => (
-            <div class="flex items-center bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full shadow-sm text-sm font-medium transition-transform hover:scale-105">
-              <Icon name={feature.icon} class="w-4 h-4 mr-2 text-blue-500" />
+            <div class="flex items-center bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full shadow-sm dark:shadow-slate-700/50 text-sm font-medium text-gray-800 dark:text-gray-200 transition-transform hover:scale-105 border border-gray-200 dark:border-slate-700">
+              <Icon name={feature.icon} class="w-4 h-4 mr-2 text-blue-500 dark:text-blue-400" />
               <span>{feature.text}</span>
             </div>
           ))}
