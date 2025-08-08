@@ -1,0 +1,136 @@
+---
+import SectionWrapper from '~/components/common/SectionWrapper.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import PricingPlans from '~/components/widgets/PricingPlans.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Precios - Trakos',
+  description: 'Control Total por Solo $37/año. Transforma la gestión de tus operaciones con Trakos.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+  <HeroText
+    tagline="Oferta de Lanzamiento"
+    title="Control Total por Solo <span class='text-blue-600 dark:text-blue-400'>$37/año</span>"
+    subtitle="¡No dejes que los datos te frenen! Por lanzamiento, Trakos pone en tus manos la inteligencia operativa que necesitas a un precio único. Transforma tu gestión empresarial con datos reales y decisiones inteligentes."
+    callToAction={{
+      text: 'Asegura tu Plan Ahora',
+      href: '#pricing',
+      variant: 'primary',
+    }}
+    callToAction2={{
+      text: 'Ver Características',
+      href: '#features',
+      variant: 'secondary',
+    }}
+    containerClass="pt-20 sm:pt-24 md:pt-28"
+  />
+
+  <!-- Pricing Widget con PricingPlans adaptado ******************* -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24" id="pricing">
+    <PricingPlans
+      title="Oferta de Lanzamiento"
+      subtitle="Transforma la gestión de tus operaciones con un precio único"
+      tagline="Precio especial"
+    />
+  </SectionWrapper>
+
+  <!-- Features3 Widget ************** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24" id="features">
+    <Features3
+      title="Características del Plan"
+      subtitle="Descubre las ventajas de elegir Trakos"
+      columns={2}
+      items={[
+        {
+          title: 'Gestión de Equipos',
+          description: 'Administra hasta 100 trabajadores con herramientas avanzadas de seguimiento y control.',
+          icon: 'tabler:users',
+        },
+        {
+          title: 'Inteligencia Artificial',
+          description: '1,000 créditos de IA para generar reportes automáticos y análisis predictivos.',
+          icon: 'tabler:brain',
+        },
+        {
+          title: 'Recargas Flexibles',
+          description: 'Añade más créditos de IA cuando necesites reportes adicionales.',
+          icon: 'tabler:refresh',
+        },
+        {
+          title: 'Datos en Tiempo Real',
+          description: 'Acceso inmediato a información actualizada para tomar decisiones informadas.',
+          icon: 'tabler:chart-line',
+        },
+        {
+          title: 'Análisis Predictivo',
+          description: 'Anticípate a problemas operativos antes de que ocurran.',
+          icon: 'tabler:crystal-ball',
+        },
+        {
+          title: 'Soporte 24/7',
+          description: 'Asistencia completa para maximizar el rendimiento de tu operación.',
+          icon: 'tabler:headset',
+        },
+      ]}
+      classes={{ container: 'max-w-5xl' }}
+    />
+  </SectionWrapper>
+
+  <!-- FAQs Widget ******************* -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <FAQs
+      title="Preguntas Frecuentes"
+      subtitle="Elegir el plan correcto es importante. Aquí respondemos las dudas más comunes sobre Trakos."
+      columns={1}
+      items={[
+        {
+          title: '¿Qué incluye el plan de $37 anuales?',
+          description:
+            'El plan incluye gestión de hasta 100 trabajadores, 1,000 créditos de IA para reportes automáticos, y acceso completo a todas las funcionalidades de Trakos.',
+        },
+        {
+          title: '¿Puedo agregar más créditos de IA?',
+          description:
+            'Sí, puedes comprar recargas flexibles de créditos de IA cuando necesites generar más reportes o análisis.',
+        },
+        {
+          title: '¿Hay límite en el número de reportes?',
+          description:
+            'Puedes generar reportes hasta agotar tus 1,000 créditos incluidos. Después puedes recargar según tus necesidades.',
+        },
+        {
+          title: '¿Qué métodos de pago aceptan?',
+          description:
+            'Aceptamos las principales tarjetas de crédito y métodos de pago en línea para garantizar transacciones seguras.',
+        },
+        {
+          title: '¿Hay costos ocultos?',
+          description:
+            'No, el precio de $37 anuales incluye todas las funcionalidades listadas. Solo pagas extra si decides comprar créditos adicionales.',
+        },
+      ]}
+    />
+  </SectionWrapper>
+
+  <!-- CallToAction Widget *********** -->
+  <SectionWrapper containerClass="py-16 sm:py-20 md:py-24">
+    <CallToAction
+      title="¡Actúa con inteligencia hoy!"
+      subtitle="Esta es tu oportunidad de tomar decisiones con datos reales y precisos, anticiparte a los problemas y asegurar la máxima eficiencia."
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Asegura tu Plan Trakos Ahora',
+          href: '#',
+        },
+      ]}
+    />
+  </SectionWrapper>
+</Layout>

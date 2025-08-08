@@ -208,7 +208,7 @@ const { className = '' } = Astro.props;
 
     async checkBackendHealth() {
       try {
-        const response = await fetch(`${this.config.backendUrl}/health`, {
+        const response = await fetch(`${this.config.backendUrl}/api/health`, {
           method: 'GET',
           signal: AbortSignal.timeout(5000), // 5 segundos timeout
         });

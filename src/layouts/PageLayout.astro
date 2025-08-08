@@ -2,6 +2,7 @@
 import Footer from '~/components/widgets/Footer.astro';
 import Header from '~/components/widgets/Header.astro';
 import Layout from '~/layouts/Layout.astro';
+import Chatbot from '~/components/ui/Chatbot.astro';
 
 import { footerData, headerData } from '~/navigation';
 
@@ -15,11 +16,21 @@ const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
-  <Header {...headerData} isSticky={true} showRssFeed showToggleTheme />
+  <slot name="announcement" />
+  <slot name="header">
+    <Header {...headerData} isSticky showRssFeed showToggleTheme />
+  </slot>
   <main class="bg-white dark:bg-slate-900 min-h-screen w-full pt-0">
     <slot />
   </main>
   <slot name="footer">
     <Footer {...footerData} />
   </slot>
+
+  <!-- Chatbot Trakos con backend LangChain -->
+  <Chatbot
+    backendUrl="http://localhost:3001"
+    title="Asistente Trakos"
+    placeholder="Pregúntame sobre Trakos, precios, industrias..."
+  />
 </Layout>

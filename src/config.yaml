@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Trakos
+  site: 'https://trakos.net'
   base: '/'
   trailingSlash: false
 
@@ -9,22 +9,22 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Trakos - La Inteligencia Operativa que Transforma tu Gestión Diaria
+    template: '%s — Trakos'
+  description: "Trakos es una aplicación multiplataforma potenciada por inteligencia artificial diseñada para ser tu compañero indispensable en la gestión operativa diaria. Desde el campo, en tiempo real, con datos accionables."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Trakos
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
+    handle: '@trakos'
+    site: '@trakos'
     cardType: summary_large_image
 
 i18n:

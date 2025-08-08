@@ -16,8 +16,7 @@ export const headerData = {
     },
     {
       text: 'Precio',
-      href: '',
-      disabled: true,
+      href: getPermalink('/precios'),
     },
   ],
   actions: [

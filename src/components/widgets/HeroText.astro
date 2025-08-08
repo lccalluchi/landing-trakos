@@ -9,6 +9,7 @@ export interface Props {
   content?: string;
   callToAction?: string | CallToAction;
   callToAction2?: string | CallToAction;
+  containerClass?: string;
 }
 
 const {
@@ -18,19 +19,29 @@ const {
   content = await Astro.slots.render('content'),
   callToAction = await Astro.slots.render('callToAction'),
   callToAction2 = await Astro.slots.render('callToAction2'),
+  containerClass = await Astro.slots.render('containerClass'),
 } = Astro.props;
 ---
 
 <section class="relative md:-mt-[76px] not-prose">
-  <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-blue-500 to-white" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+  <!-- Fondo con gradiente mejorado para dark mode -->
+  <div
+    class="absolute inset-0 pointer-events-none bg-gradient-to-b from-blue-500 to-white dark:from-blue-900 dark:to-slate-900"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- Overlay adicional para mejor contraste en dark mode -->
+  <div class="absolute inset-0 pointer-events-none bg-white/10 dark:bg-slate-900/20" aria-hidden="true"></div>
+
+  <div class:list={['relative max-w-7xl mx-auto px-4 sm:px-6', containerClass]}>
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20 pb-8 md:pb-8">
       <div class="text-center max-w-5xl mx-auto">
         {
           tagline && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-base text-blue-600 dark:text-blue-300 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={tagline}
             />
           )
@@ -38,7 +49,7 @@ const {
         {
           title && (
             <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-gray-900 dark:text-white intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               set:html={title}
             />
           )
@@ -47,7 +58,7 @@ const {
           {
             subtitle && (
               <p
-                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+                class="text-xl text-gray-600 dark:text-gray-300 mb-6 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
                 set:html={subtitle}
               />
             )
