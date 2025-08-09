@@ -1,87 +1,120 @@
-# 🚀 AstroWind
+# 🚀 Trakos - Sitio Web Corporativo
 
-<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+**Trakos LLC** - Sitio web corporativo desarrollado con **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)** para la aplicación de gestión operativa potenciada por inteligencia artificial.
 
-🌟 _Most *starred* & *forked* Astro theme in 2022, 2023 & 2024_. 🌟
+## 📍 Información de la Empresa
 
-**AstroWind** is a free and open-source template to make your website using **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+**Trakos LLC**  
+*"La Inteligencia Operativa que Transforma tu Gestión Diaria"*
 
-- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
-- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
-- ✅ Generation of **project sitemap** based on your routes.
-- ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
+📧 **Contacto**: info@trakos.net  
+🏢 **Sede**: 701 Brickell Avenue, Suite 1500, Miami, FL 33131, Estados Unidos  
+👨‍💼 **CEO**: Wilfredo Pari, MBA
+
+## 🎯 Sobre el Producto
+
+Trakos es una aplicación multiplataforma potenciada por inteligencia artificial diseñada para ser el compañero indispensable en la gestión operativa diaria. Proporciona el pulso exacto del avance de cada tarea, el rendimiento de cada colaborador y la eficiencia de cada equipo.
+
+### Características Principales:
+- 📊 **Reportes Automáticos** de desempeño y productividad
+- 🎯 **Anticipación Inteligente** para decisiones estratégicas  
+- ⚡ **Datos en Tiempo Real** desde el campo
+- 📱 **Acceso Multiplataforma** (móvil y web)
+
+### Industrias Objetivo:
+- 🏗 **Construcción Civil** - Control de avance físico y recursos
+- 🔩 **Minería y Metalurgia** - KPIs de extracción y recuperación
+- 🏭 **Manufactura y Producción** - Trazabilidad operativa
+- 🛒 **Comercio y Retail** - Análisis de conversión y ventas
+- 🚚 **Logística y Distribución** - Control de rutas y entregas
+- 🚜 **Agroindustria** - Gestión por lote y hectárea
+
+## 💰 Precios
+
+**Plan Estándar**: $37.00/año (Oferta de Lanzamiento)
+- 👥 Hasta 100 usuarios
+- 🤖 1,000 créditos AI anuales (recargables)
+- 📄 Reportes PDF incluidos
+- 💰 Solo el administrador paga, trabajadores gratis
+
+## 🌐 Características Técnicas del Sitio
+
+- ✅ **Production-ready** scores en **PageSpeed Insights**
+- ✅ Integración con **Tailwind CSS** soportando **Dark mode**
+- ✅ **SEO optimizado** con **Open Graph tags** para redes sociales
+- ✅ **Optimización de imágenes** usando **Astro Assets**
+- ✅ Generación automática de **sitemap**
+- ✅ **Analytics** integrado
+- ✅ Diseño **responsive** y **mobile-first**
+
+## 🎥 Demo
+
+📌 **Video Demo**: [https://www.youtube.com/watch?v=n43D8uk_SLw](https://www.youtube.com/watch?v=n43D8uk_SLw)
+
+## 🚀 ¿Cómo Funciona Trakos?
+
+### Proceso en 4 Pasos:
+
+1. **🔐 El Administrador Crea su Cuenta**  
+   Descarga la app, configura tu proyecto y registra a tu equipo
+
+2. **📋 Planificas Tareas y Objetivos**  
+   Asigna metas diarias por trabajador usando tus propias unidades
+
+3. **📱 Tu Equipo Reporta Desde el Campo**  
+   Los usuarios registran objetivos, fotos y comentarios en tiempo real
+
+4. **📊 Trakos Genera tus Reportes**  
+   Recibe análisis automáticos con IA mostrando avance y áreas de mejora
 
 <br>
 
-![AstroWind Theme Screenshot](https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/screenshot-astrowind-1.0.png)
+## 📞 Contacto
 
-[![onWidget](https://custom-icon-badges.demolab.com/badge/made%20by%20-onWidget-556bf2?style=flat-square&logo=onwidget&logoColor=white&labelColor=101827)](https://onwidget.com)
-[![License](https://img.shields.io/github/license/onwidget/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/onwidget/astrowind/blob/main/LICENSE.md)
-[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/onwidget)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/onwidget/astrowind#contributing)
-[![Known Vulnerabilities](https://snyk.io/test/github/onwidget/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/onwidget/astrowind)
-[![Stars](https://img.shields.io/github/stars/onwidget/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
-[![Forks](https://img.shields.io/github/forks/onwidget/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
+📧 **Email**: info@trakos.net  
+⚖️ **Legal**: legal@trakos.net  
+🔒 **Privacidad**: privacy@trakos.net  
+📞 **Teléfono**: +1 305 555 5555
 
-<br>
+## 🌐 Redes Sociales
+
+- LinkedIn
+- Facebook  
+- Instagram
+- TikTok
+- YouTube
+- WhatsApp
+- Telegram
 
 <details open>
-<summary>Table of Contents</summary>
+<summary>📋 Tabla de Contenidos</summary>
 
-- [Demo](#demo)
-- [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
-- [TL;DR](#tldr)
-- [Getting started](#getting-started)
-  - [Project structure](#project-structure)
-  - [Commands](#commands)
-  - [Configuration](#configuration)
-  - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Related Projects](#related-projects)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [Información de la Empresa](#-información-de-la-empresa)
+- [Sobre el Producto](#-sobre-el-producto)
+- [Precios](#-precios)
+- [Demo](#-demo)
+- [¿Cómo Funciona Trakos?](#-cómo-funciona-trakos)
+- [Instalación](#-instalación-y-desarrollo)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Comandos](#comandos)
+- [Configuración](#configuración)
+- [Deploy](#deploy)
+- [Contacto](#-contacto)
+- [Licencia](#licencia)
 
 </details>
 
-<br>
+## 🚀 Instalación y Desarrollo
 
-## Demo
+Este sitio web corporativo de **Trakos** está desarrollado usando **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. El template se enfoca en simplicidad, buenas prácticas y alto rendimiento.
 
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
+Se utiliza muy poco JavaScript vanilla, solo para funcionalidad básica, permitiendo que cada desarrollador decida qué framework usar (React, Vue, Svelte, Solid JS...).
 
-<br>
+Esta versión soporta todas las opciones de configuración de `output`: `static`, `hybrid` y `server`, pero el blog solo funciona con `prerender = true`.
 
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
+### Estructura del Proyecto
 
-We're embarking on an exciting journey with **AstroWind 2.0**, and we want you to be a part of it! We're currently taking the first steps in developing this new version and your insights are invaluable. Join the discussion and share your feedback, ideas, and suggestions to help shape the future of **AstroWind**. Let's make **AstroWind 2.0** even better, together!
-
-[Share Your Feedback in Our Discussion!](https://github.com/onwidget/astrowind/discussions/392)
-
-<br>
-
-
-## TL;DR
-
-```shell
-npm create astro@latest -- --template onwidget/astrowind
-```
-
-## Getting started
-
-**AstroWind** tries to give you quick access to creating a website using [Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
-
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
-
-In this version the template supports all the options in the `output` configuration, `static`, `hybrid` and `server`, but the blog only works with `prerender = true`. We are working on the next version and aim to make it fully compatible with SSR.
-
-### Project structure
-
-Inside **AstroWind** template, you'll see the following folders and files:
+Dentro del proyecto **Trakos**, encontrarás las siguientes carpetas y archivos:
 
 ```
 /
@@ -132,172 +165,193 @@ Inside **AstroWind** template, you'll see the following folders and files:
 └── ...
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro busca archivos `.astro` o `.md` en el directorio `src/pages/`. Cada página se expone como una ruta basada en su nombre de archivo.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+En `src/components/` colocamos todos los componentes de Astro/React/Vue/Svelte/Preact.
 
-Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
+Los assets estáticos, como imágenes, se pueden colocar en el directorio `public/` si no requieren transformación o en el directorio `assets/` si se importan directamente.
 
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/onwidget/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/onwidget/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/onwidget/astrowind)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
+> 💼 **¿Desarrollador experimentado?** Actualiza `src/config.yaml` con la configuración de Trakos y personaliza el contenido según las necesidades corporativas.
 
 <br>
 
-### Commands
+### Comandos
 
-All commands are run from the root of the project, from a terminal:
+Todos los comandos se ejecutan desde la raíz del proyecto, en una terminal:
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm install`       | Installs dependencies                              |
-| `npm run dev`       | Starts local dev server at `localhost:4321`        |
-| `npm run build`     | Build your production site to `./dist/`            |
-| `npm run preview`   | Preview your build locally, before deploying       |
-| `npm run check`     | Check your project for errors                      |
-| `npm run fix`       | Run Eslint and format codes with Prettier          |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro preview` |
+| Comando             | Acción                                              |
+| :------------------ | :-------------------------------------------------- |
+| `npm install`       | Instala las dependencias                           |
+| `npm run dev`       | Inicia el servidor local en `localhost:4321`       |
+| `npm run build`     | Construye el sitio para producción en `./dist/`    |
+| `npm run preview`   | Previsualiza la build localmente antes del deploy  |
+| `npm run check`     | Verifica el proyecto en busca de errores           |
+| `npm run fix`       | Ejecuta Eslint y formatea código con Prettier      |
+| `npm run astro ...` | Ejecuta comandos CLI como `astro add`, `astro preview` |
 
 <br>
 
-### Configuration
+### Configuración
 
-Basic configuration file: `./src/config.yaml`
+Archivo de configuración principal: `./src/config.yaml`
 
 ```yaml
 site:
-  name: 'Example'
-  site: 'https://example.com'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
-  trailingSlash: false # Generate permalinks with or without "/" at the end
+  name: 'Trakos'
+  site: 'https://trakos.net'
+  base: '/' 
+  trailingSlash: false
 
-  googleSiteVerificationId: false # Or some value,
+  googleSiteVerificationId: false # Agregar valor cuando esté disponible
 
-# Default SEO metadata
+# Metadata SEO por defecto
 metadata:
   title:
-    default: 'Example'
-    template: '%s — Example'
-  description: 'This is the default meta description of Example website'
+    default: 'Trakos - Inteligencia Operativa'
+    template: '%s — Trakos'
+  description: 'La aplicación de gestión operativa potenciada por IA que transforma tu gestión diaria. Datos en tiempo real desde el campo.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: 'Example'
+    site_name: 'Trakos'
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/trakos-og.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@twitter_user'
-    site: '@twitter_user'
+    handle: '@trakos_app'
+    site: '@trakos_app'
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: es
   textDirection: ltr
 
 apps:
   blog:
-    isEnabled: true # If the blog will be enabled
-    postsPerPage: 6 # Number of posts per page
+    isEnabled: true
+    postsPerPage: 6
 
     post:
       isEnabled: true
-      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: '/blog/%slug%'
       robots:
         index: true
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: 'blog'
       robots:
         index: true
 
     category:
       isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      pathname: 'categoria'
       robots:
         index: true
 
     tag:
       isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      pathname: 'tag'
       robots:
         index: false
 
-    isRelatedPostsEnabled: true # If a widget with related posts is to be displayed below each post
-    relatedPostsCount: 4 # Number of related posts to display
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
 
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: null # Agregar ID de Google Analytics
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'system' # "system" | "light" | "dark" | "light:only" | "dark:only"
 ```
 
 <br>
 
-#### Customize Design
+#### Personalizar Diseño
 
-To customize Font families, Colors or more Elements refer to the following files:
+Para personalizar fuentes, colores o más elementos, consulta los siguientes archivos:
 
 - `src/components/CustomStyles.astro`
+- `src/components/TrakosColors.astro`
 - `src/assets/styles/tailwind.css`
+
+#### Colores de Marca Trakos
+
+```css
+:root {
+  --primary-blue: #1E88E5;
+  --secondary-blue: #42A5F5;
+  --accent-yellow: #FFD700;
+  --text-dark: #333333;
+  --text-light: #666666;
+  --background-light: #F8F9FA;
+  --white: #FFFFFF;
+}
+```
 
 ### Deploy
 
-#### Deploy to production (manual)
+#### Deploy a producción (manual)
 
-You can create an optimized production build with:
+Puedes crear una build optimizada para producción con:
 
 ```shell
 npm run build
 ```
 
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
+Ahora tu sitio web está listo para ser deployado. Todos los archivos generados se encuentran en la carpeta `dist`, la cual puedes deployar a cualquier servicio de hosting que prefieras.
 
-#### Deploy to Netlify
+#### Deploy a Netlify
 
-Clone this repository on your own GitHub account and deploy it to Netlify:
+Clona este repositorio en tu cuenta de GitHub y deployalo a Netlify:
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/onwidget/astrowind)
+[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/trakos/landing-page)
 
-#### Deploy to Vercel
+#### Deploy a Vercel
 
-Clone this repository on your own GitHub account and deploy to Vercel:
+Clona este repositorio en tu cuenta de GitHub y deploya a Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonwidget%2Fastrowind)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/trakos/landing-page)
 
 <br>
 
-## Frequently Asked Questions
+## 💡 Mensaje del CEO
 
-- Why?
--
--
+> *"En el dinámico mundo de las operaciones, no hay espacio para la intuición. En proyectos donde cada decisión es crítica, lo que no se mide, simplemente no puede mejorarse.*
+> 
+> *Trakos nació de una profunda comprensión de esta necesidad: cerrar el vacío de información que frena la productividad. Nuestra promesa es simple: entregarte reportes precisos y oportunos que reflejen la realidad de tus operaciones.*
+> 
+> *Porque estamos convencidos de que solo con datos auténticos y en tiempo real se pueden tomar decisiones que verdaderamente generen valor y aseguren el éxito."*
+> 
+> **— Wilfredo Pari, MBA - CEO**
 
 <br>
 
-## Related projects
+## 🏗 Contribuciones
 
-- [TailNext](https://tailnext.vercel.app/) - Free template using Next.js 14 and Tailwind CSS with the new App Router.
-- [Qwind](https://qwind.pages.dev/) - Free template to make your website using Qwik + Tailwind CSS.
+Si tienes ideas, sugerencias o encuentras bugs, siéntete libre de abrir una discusión, un issue o crear un pull request. Esto sería muy útil para todos nosotros y estaríamos encantados de escuchar y tomar acción.
 
-## Contributing
+## 📄 Páginas Legales
 
-If you have any ideas, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
+- [Términos y Condiciones](./terms.md) - Última actualización: 03 de julio del 2025
+- [Política de Privacidad](./privacy.md) - Última actualización: 05 de julio de 2025
+- Libro de Reclamaciones (Solo para Perú)
 
-## Acknowledgements
+## 🙏 Agradecimientos
 
-Initially created by [onWidget](https://onwidget.com) and maintained by a community of [contributors](https://github.com/onwidget/astrowind/graphs/contributors).
+Desarrollado originalmente usando el template [AstroWind](https://github.com/onwidget/astrowind) y personalizado para las necesidades corporativas de Trakos LLC.
 
-## License
+## Licencia
 
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+Este proyecto está basado en **AstroWind** que está licenciado bajo la licencia MIT — ver el archivo [LICENSE](./LICENSE.md) para más detalles.
+
+---
+
+**Trakos LLC** - Registrada en Estados Unidos  
+*Jurisdicción: Estado de Florida, EE.UU.*  
+*Datos procesados bajo estándares internacionales*
